@@ -6,7 +6,7 @@ const mysql = require('mysql');
 const csrf = require('csurf');
 
 const app = express();
-const port = 3000;
+const port = 3300;
 
 
 // Configurazione del database MySQL
@@ -15,7 +15,6 @@ const connection = mysql.createConnection({
     user: 'adminFigo',
     password: 'admin',
     database: 'CalabriaEventi',
-    socketPath : '/var/run/mysqld/mysqld.sock'
 });
 
 connection.connect((error) => {
@@ -25,8 +24,8 @@ connection.connect((error) => {
     }
     console.log('Connessione al database MySQL avvenuta con successo!');
 });
-
-// Middleware per la protezione delle route amministratore
+ 
+// Middleware per la protezione delle route amministratore                 -- spostato
 const proteggiRouteAmministratore = (req, res, next) => {
     if (!req.session.userId || !isAdmin(req.session.userId)) {
         return res.status(403).send('Accesso non autorizzato.');
