@@ -1,0 +1,27 @@
+{
+  "name": "calabriaevents",
+  "version": "1.0.0",
+  "description": "eventi calabria sito",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fvnnico/CalabriaEvents.git"
+  },
+  "author": "rosaria,domenico,vito,davide",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fvnnico/CalabriaEvents/issues"
+  },
+  "homepage": "https://github.com/Fvnnico/CalabriaEvents#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "csurf": "^1.11.0",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1"
+  }
+}

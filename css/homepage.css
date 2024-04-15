@@ -1,0 +1,50 @@
+@media screen and (max-width: 430px) {
+    /* Zona logo, account , hamburg menu */
+    header {
+        width: 100%;
+        height: 5.4em;
+        background-color: var(--header-color);
+    }
+
+    nav {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav .logo {
+        margin-left: 1.3em;
+        margin-right: auto;
+    }
+
+    nav .account {
+        margin-right: 1em;
+    }
+
+    nav .hamburger-menu {
+        margin-right: 1.6em;
+    }
+
+    
+    /* contenitore ricerca */
+
+    .contenitore-search{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 22px 0 22px;
+    }
+
+    .contenitore-search form input{
+        width: 386px;
+    }
+
+
+
+
+
+}
