@@ -32,6 +32,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Router per la gestione delle pagine
 const authRouter = express.Router();
 
+
+// Collega il router all'app principale
+app.use('/', authRouter);
+
+
 // Pagina homepage 
 authRouter.get('/', (req, res) => {
     const filePath = path.join(__dirname, 'pages', 'homepage.html');
@@ -70,12 +75,8 @@ authRouter.get('/login', (req, res) => {
 
 
 
-// Collega il router all'app principale
-app.use('/', authRouter);  
 
-
-/* app.set(express.static(path.join(__dirname, "public"))); */
-
+// per errori below
 
 // Gestione degli errori per le route non trovate
 app.use((req, res, next) => {
