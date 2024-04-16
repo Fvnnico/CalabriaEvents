@@ -21,3 +21,16 @@ app.post('/registrazione', async (req, res, next) => {
     }
 });
  */
+
+
+/* // Gestione della registrazione
+authRouter.post('/registrazione', (req, res) => {
+    // Qui gestisci la logica di registrazione
+    res.send('Logica di registrazione');
+});
+
+// Gestione del login
+authRouter.post('/login', (req, res) => {
+    // Qui gestisci la logica di login
+    res.send('Logica di login');
+}); */

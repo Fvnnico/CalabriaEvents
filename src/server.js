@@ -1,9 +1,9 @@
 const express = require('express');
-const session = require('express-session');
+/* const session = require('express-session'); */
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
+/* const bcrypt = require('bcrypt'); */
 const mysql = require('mysql2');
-const csrf = require('csurf');
+/* const csrf = require('csurf'); */
 const path = require('path');  // test
 
 const app = express();
@@ -29,14 +29,29 @@ connection.connect((error) => {
 // Middleware per il parsing del body delle richieste
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Router per la gestione delle pagine di login e registrazione
+// Router per la gestione delle pagine
 const authRouter = express.Router();
+
+// Pagina homepage 
+authRouter.get('/', (req, res) => {
+    const filePath = path.join(__dirname, 'pages', 'homepage.html');
+    console.log('Percorso del file:', filePath);
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log('error');
+            res.status(500).send('Errore interno del server'); 
+        }
+    });
+});
+
 
 // Pagina di registrazione
 authRouter.get('/registrazione', (req, res) => {
-    const filePath = path.join(__dirname, 'public', 'registrazione.html');
+    
+    const filePath = path.join(__dirname, 'pages', 'registrazione.html');
     res.sendFile(filePath, (err) => {
         if (err) {
+            console.log(err);
             res.status(500).send('Errore interno del server');
         }
     });
@@ -44,35 +59,36 @@ authRouter.get('/registrazione', (req, res) => {
 
 // Pagina di login
 authRouter.get('/login', (req, res) => {
-    res.send('Pagina di login');
+    const filePath = path.join(__dirname, 'pages', 'login.html');
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send('Errore interno del server');
+        }
+    });
 });
 
-/* // Gestione della registrazione
-authRouter.post('/registrazione', (req, res) => {
-    // Qui gestisci la logica di registrazione
-    res.send('Logica di registrazione');
-});
 
-// Gestione del login
-authRouter.post('/login', (req, res) => {
-    // Qui gestisci la logica di login
-    res.send('Logica di login');
-}); */
 
 // Collega il router all'app principale
-app.use('/', authRouter);
+app.use('/', authRouter);  
 
+
+/* app.set(express.static(path.join(__dirname, "public"))); */
 
 
 // Gestione degli errori per le route non trovate
 app.use((req, res, next) => {
-    res.status(404).send('Route non trovata.');
-});
+res.status(404).send('Route non trovata.');
+next();
+}); 
+ 
 
 // Gestione degli errori generici
 app.use((err, req, res, next) => {
     console.error('Errore interno del server:', err);
     res.status(500).send('Errore interno del server.');
+    next();
 });
 
 // Avvio del server

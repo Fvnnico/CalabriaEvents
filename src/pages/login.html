@@ -3,10 +3,10 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Registrazione</title>
-        <link rel="stylesheet" href="/style/register.css" />
+        <title>Login</title>
+        <link rel="stylesheet" href="/src/public/style/login.css" />
         <!-- stile css -->
-        <link rel="stylesheet" href="/style/global.css" />
+        <link rel="stylesheet" href="/src/public/style/global.css" />
         <!--  variabili globali -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,11 +21,11 @@
         <!-- Zona logo, account , menu -->
         <header>
             <nav>
-                <img class="logo" src="foto/LOGO.png" alt="logo-sito" />
-                <img class="account" src="foto/omino.png" alt="account" />
+                <img class="logo" src="/src/pictures/LOGO.png" alt="logo-sito" />
+                <img class="account" src="/src/pictures/omino.png" alt="account" />
                 <img
                     class="hamburger-menu"
-                    src="foto/hamburger.png"
+                    src="/src/pictures/hamburger.png"
                     alt="hamburger-menu"
                 />
             </nav>
@@ -33,43 +33,25 @@
         <!-- Zona contenuto -->
         <main>
             <div class="consiglio-registrazione-container">
-                <h1 class="titoli-title">Registrazione</h1>
-                <h3>Hai gia un account?</h3>
-                <h2><a href="login.html">Accedi</a></h2>
+                <h1>Accesso</h1>
+                <h3>Non sei ancora registrato?</h3>
+                <h2><a href="registrazione.html">Registrati</a></h2>
             </div>
 
             <div class="accesso-container">
-                <form id="registrationForm" action="/login" method="post">
-                    <label class="campo" for="nome">Nome:</label>
+                <form action="/login" method="post">
+                    <label class="email" for="email">E-mail:</label>
                     <input
-                        class="campo"
-                        type="text"
-                        id="nome"
-                        name="nome"
-                        placeholder="Inserisci il tuo nome"
-                        required
-                    />
-                    <label class="campo" for="cognome">Cognome:</label>
-                    <input
-                        class="campo"
-                        type="text"
-                        id="cognome"
-                        name="cognome"
-                        placeholder="Inserisci il tuo cognome"
-                        required
-                    />
-                    <label class="campo" for="email">Email:</label>
-                    <input
-                        class="campo"
+                        class="email"
                         type="text"
                         id="email"
                         name="email"
                         placeholder="Inserisci la tua email"
                         required
                     />
-                    <label class="campo" for="password">Password:</label>
+                    <label class="password" for="password">Password:</label>
                     <input
-                        class="campo"
+                        class="password"
                         type="password"
                         id="password"
                         name="password"
@@ -77,13 +59,12 @@
                         required
                     />
                 </form>
-                <div class="contenitore-conferma">
-                    <p>
-                        Creando un account, aderisci ai<br/><b>Termini di Servizio</b> e <b>Privacy Policy</b>
-                    </p>
-                </div>
+                <form>
+                    <input type="checkbox" id="checkbox" />
+                    <label for="checkbox">Mantieniti collegato</label>
+                </form>
                 <div class="contenitore-bottone">
-                    <button class="accedi" type="submit" onclick="">Registrati</button>
+                    <button class="accedi" type="submit">Accedi</button>
                 </div>
 
                 <div class="accessi-alt-contenitore">
@@ -93,39 +74,39 @@
                 </div>
 
                 <div class="contenitore-accessi">
-                    <img src="foto/logos_facebook.png" alt="logo-facebook" />
+                    <img src="/src/pictures/logos_facebook.png" alt="logo-facebook" />
                     <button class="social-login" type="submit">
                         Accedi con Facebook
                     </button>
                 </div>
 
                 <div class="contenitore-accessi">
-                    <img src="foto/logos_google.png" alt="logo-google" />
+                    <img src="/src/pictures/logos_google.png" alt="logo-google" />
                     <button class="social-login" type="submit">
                         Accedi con Google
                     </button>
                 </div>
 
                 <div class="contenitore-accessi">
-                    <img src="foto/apple-logo.png" alt="apple-logo" />
+                    <img src="/src/pictures/apple-logo.png" alt="apple-logo" />
                     <button class="social-login" type="submit">
                         Accedi con Apple
                     </button>
                 </div>
             </div>
 
-            <p class="problemi-accesso">Problemi con la registrazione?</p>
+            <p class="problemi-accesso">Problemi con l'accesso?</p>
         </main>
 
         <footer>
             <div class="contenitore-footer">
-                <img class="logo" src="foto/LOGO.png" alt="logo" />
+                <img class="logo" src="/src/pictures/LOGO.png" alt="logo" />
 
                 <div class="contenitore-loghi">
-                    <img src="foto/logos_facebook.png" alt="instagram" />
-                    <img src="foto/instagram.png" alt="facebook" />
-                    <img src="foto/x.png" alt="twitter" />
-                    <img src="foto/youtube.png" alt="youtube" />
+                    <img src="/src/pictures/logos_facebook.png" alt="instagram" />
+                    <img src="/src/pictures/instagram.png" alt="facebook" />
+                    <img src="/src/pictures/x.png" alt="twitter" />
+                    <img src="/src/pictures/youtube.png" alt="youtube" />
                 </div>
 
                 <div class="contenitore-scritte">
@@ -145,5 +126,4 @@
             </div>
         </footer>
     </body>
-    <script src="/registrazione.js"></script>
 </html>
