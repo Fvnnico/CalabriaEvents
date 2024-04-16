@@ -6,9 +6,7 @@ CREATE TABLE Eventi (
     id_evento INT AUTO_INCREMENT PRIMARY KEY,
     nome_evento VARCHAR(255),
     data_inizio DATE,
-    luogo_evento ENUM ('Reggio Calabria', 'Cosenza', 'Catanzaro', 'Crotone', 'Vibo Valentia', 'Scalea', 'Tropea', 'Pizzo', 'Paola', 'Amantea', 'Praia a 
-    Mare','Diamante','Tortora','Siderno', 'Rosarno', 'Marina di Gioiosa Ionica', 'Roccella Ionica', 'Soverato', 'Bagnara Calabra', 'Scilla', 'Locri', 'Stilo', 'Gerace', 'Palmi', 
-    'Rende', 'Lamezia Terme', 'Belvedere Marittimo', 'Isola di Capo Rizzuto', 'Villapiana', 'San Giovanni in Fiore', 'Castrovillari', 'Capo Vaticano', 'Capo Rizzuto'),
+    luogo_evento VARCHAR(255),
     descrizione_evento TEXT,
     categoria_evento ENUM ('Spettacolo e Intrattenimento', 'Mostre ed Esposizioni', 'Sagre e Feste patronali', 'Escursioni e Visite guidate', 'Convegni e Congressi', 'Altro'),
     provincia_evento ENUM ( 'Catanzaro','Cosenza', 'Crotone', 'Reggio Calabria',  'Vibo Valentia'),
