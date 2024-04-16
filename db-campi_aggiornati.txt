@@ -1,0 +1,87 @@
+CREATE DATABASE IF NOT EXISTS CalabriaEventi;
+
+USE CalabriaEventi;
+
+CREATE TABLE Eventi (
+    id_evento INT AUTO_INCREMENT PRIMARY KEY,
+    nome_evento VARCHAR(255),
+    data_inizio DATE,
+    luogo_evento VARCHAR(255),
+    descrizione_evento TEXT,
+    categoria_evento ENUM ('Spettacolo e Intrattenimento', 'Mostre ed Esposizioni', 'Sagre e Feste patronali', 'Escursioni e Visite guidate', 'Convegni e Congressi', 'Altro'),
+    provincia_evento ENUM ( 'Catanzaro','Cosenza', 'Crotone', 'Reggio Calabria',  'Vibo Valentia'),
+    locandina_evento VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS Utenti (
+    id_utente INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cognome VARCHAR(255),
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    admin BOOLEAN NOT NULL DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS Preferiti (
+    id_preferiti INT AUTO_INCREMENT PRIMARY KEY,
+    id_utente INT NOT NULL,
+    id_evento INT NOT NULL,
+    FOREIGN KEY (id_utente) REFERENCES Utenti(id_utente),
+    FOREIGN KEY (id_evento) REFERENCES Eventi(id_evento)
+);
+
+QUERY FINO AD ORA
+
+
+-- Admin
+INSERT INTO Utenti (nome, cognome, email, password, admin)
+VALUES ('Nome', 'Cognome', 'adminemail@example.com', 'admin', 1);
+
+SELECT * FROM Utenti WHERE email = 'adminemail@example.com' AND password = 'admin' AND admin = 1;
+-- Registrazione di un nuovo utente
+INSERT INTO Utenti (nome, cognome, email, password) VALUES ('Nome', 'Cognome', 'email@example.com', 'password');
+
+-- Autenticazione di un utente
+SELECT * FROM Utenti WHERE email = 'email@example.com' AND password= 'password';
+-- Aggiunta di un evento ai preferiti di un utente
+INSERT INTO Preferiti (id_utente, id_evento) VALUES (id_utente, id_evento);
+
+-- Rimozione di un evento dai preferiti di un utente
+DELETE FROM Preferiti WHERE id_utente = id_utente AND id_evento = id_evento;
+
+-- Inserimento di un nuovo evento
+INSERT INTO Eventi (nome_evento, data_inizio, luogo_evento, descrizione_evento, categoria_evento, provincia_evento, locandina_evento)
+VALUES ('Festa dei Colori', '2024-04-15', 'Bivongi', 'Lorem Ipsum', 'Mostre ed Esposizioni', 'Reggio Calabria', 'immagini/festa_colori.jpg');
+
+-- Selezione degli Eventi per Categoria
+SELECT * FROM Eventi WHERE categoria_evento = 'Mostre ed Esposizioni';
+
+-- Selezione degli Eventi per Provincia
+SELECT * FROM Eventi WHERE provincia_evento = 'Reggio Calabria';
+
+-- Recupero degli eventi preferiti di un utente
+SELECT e.* FROM Eventi e JOIN Preferiti p ON e.id_evento = p.id_evento WHERE p.id_utente = id_utente;
+
+-- Conteggio dei preferiti di un evento
+SELECT COUNT(*) FROM Preferiti WHERE id_evento = id_evento;
+
+-- Aggiornamento di un Evento Esistente
+UPDATE Eventi
+SET nome_evento = 'Nuovo Nome Evento', data_inizio = '2024-04-20', luogo_evento = 'Nuovo Luogo', descrizione_evento = 'Nuova Descrizione'
+WHERE id_evento = 1;
+
+-- Cancellazione di un Evento
+DELETE FROM Eventi WHERE id_evento = 1;
+
+-- Selezione degli Eventi Futuri
+SELECT * FROM Eventi WHERE data_inizio > CURDATE();
+
+-- Conteggio degli Eventi per Categoria
+SELECT categoria_evento, COUNT(*) AS numero_eventi
+FROM Eventi
+GROUP BY categoria_evento;
+
+-- Ricerca degli Eventi per Parole Chiave
+SELECT *
+FROM Eventi
+WHERE nome_evento LIKE '%parola_chiave%' OR descrizione_evento LIKE '%parola_chiave%';
