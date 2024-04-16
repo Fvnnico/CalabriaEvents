@@ -36,6 +36,10 @@ const authRouter = express.Router();
 // Collega il router all'app principale
 app.use('/', authRouter);
 
+// Express capisce che gli assets sono dentro public (img,css ,etc)
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // Pagina homepage 
 authRouter.get('/', (req, res) => {
@@ -48,7 +52,6 @@ authRouter.get('/', (req, res) => {
         }
     });
 });
-
 
 // Pagina di registrazione
 authRouter.get('/registrazione', (req, res) => {
@@ -74,8 +77,6 @@ authRouter.get('/login', (req, res) => {
 });
 
 
-
-
 // per errori below
 
 // Gestione degli errori per le route non trovate
@@ -84,7 +85,6 @@ res.status(404).send('Route non trovata.');
 next();
 }); 
  
-
 // Gestione degli errori generici
 app.use((err, req, res, next) => {
     console.error('Errore interno del server:', err);
