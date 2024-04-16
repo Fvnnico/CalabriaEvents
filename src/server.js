@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const mysql = require('mysql2');
 const csrf = require('csurf');
+const path = require('path');  // test
 
 const app = express();
 const port = 3300;
@@ -33,7 +34,12 @@ const authRouter = express.Router();
 
 // Pagina di registrazione
 authRouter.get('/registrazione', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'registrazione.html'));
+    const filePath = path.join(__dirname, 'public', 'registrazione.html');
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            res.status(500).send('Errore interno del server');
+        }
+    });
 });
 
 // Pagina di login
