@@ -39,7 +39,7 @@
             </div>
 
             <div class="accesso-container">
-                <form action="/login" method="post">
+                <form id="registrationForm" action="/login" method="post">
                     <label class="campo" for="nome">Nome:</label>
                     <input
                         class="campo"
@@ -74,15 +74,6 @@
                         id="password"
                         name="password"
                         placeholder="Inserisci la tua password"
-                        required
-                    />
-                    <label class="campo" for="password">Ripeti password:</label>
-                    <input
-                        class="campo"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Reinserisci la tua password"
                         required
                     />
                 </form>
@@ -154,4 +145,5 @@
             </div>
         </footer>
     </body>
+    <script src="/registrazione.js"></script>
 </html>
