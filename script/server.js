@@ -2,7 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const csrf = require('csurf');
 
 const app = express();
