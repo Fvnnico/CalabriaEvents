@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const connection = require('../db'); // Assicurati di importare il modulo di connessione al database
+const connection = require('../db'); 
 
 const registrazioneHandler = (req, res) => {
     const { nome, cognome, email, password } = req.body;

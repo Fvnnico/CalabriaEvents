@@ -2,6 +2,7 @@ const express = require('express');
 const authRouter = express.Router();
 const path = require('path');
 
+const connection = require('./db'); 
 
 // Pagina homepage routing
 authRouter.get('/', (req, res) => {
@@ -43,6 +44,6 @@ authRouter.get('/login', (req, res) => {
 
 const registrazioneHandler = require('./scripts/registrazione');
 
-module.exports = authRouter;
+const loginHandler = require('./scripts/login');
 
-const connection = require('./db'); // Assicurati che il percorso sia corretto
+module.exports = authRouter;

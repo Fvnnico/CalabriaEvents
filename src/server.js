@@ -8,6 +8,8 @@ const app = express();
 const port = 3300;
 const authRouter = require('./router'); // router
 const registrazioneHandler = require('./scripts/registrazione'); // registrazione degli utenti
+const loginHandler = require('./scripts/login'); // login degli utenti
+
 const connection = require('./db'); // connessione al database
 
 
@@ -23,7 +25,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Quando clicchi registrazione bottone
 app.post('/registrazione', registrazioneHandler);
 
-
+// Quando accedi 
+app.post('/login', loginHandler);
 
 // Gestione del login
 app.post('/login', (req, res) => {
