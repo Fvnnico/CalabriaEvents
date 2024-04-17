@@ -39,7 +39,7 @@
             </div>
 
             <div class="accesso-container">
-                <form id="registrationForm" action="/login" method="post">
+                <form id="registrationForm" action="/registrazione" method="post">
                     <label class="campo" for="nome">Nome:</label>
                     <input
                         class="campo"
@@ -76,15 +76,20 @@
                         placeholder="Inserisci la tua password"
                         required
                     />
+
+                    <div class="contenitore-conferma">
+                        <p>
+                            Creando un account, aderisci ai<br/><b>Termini di Servizio</b> e <b>Privacy Policy</b>
+                        </p>
+                    </div>
+
+                    <div class="contenitore-bottone">
+                        <button class="accedi" type="submit">Registrati</button>
+                    </div>
+
                 </form>
-                <div class="contenitore-conferma">
-                    <p>
-                        Creando un account, aderisci ai<br/><b>Termini di Servizio</b> e <b>Privacy Policy</b>
-                    </p>
-                </div>
-                <div class="contenitore-bottone">
-                    <button class="accedi" type="submit" onclick="registrazione();">Registrati</button>
-                </div>
+                
+                
 
                 <div class="accessi-alt-contenitore">
                     <div class="linea"></div>
