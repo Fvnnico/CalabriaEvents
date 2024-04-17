@@ -99,7 +99,7 @@
 
     /* bottone registrati */
 
-    .accesso-container .contenitore-bottone {
+    .accesso-container a {
         width: 100%;
         height: 100%;
         display: flex;
@@ -108,7 +108,7 @@
         margin-top: 1.1em;
     }
 
-    .accesso-container .contenitore-bottone .accedi {
+    .accesso-container a .accedi {
         width: 378px;
         height: 46px;
         font-size: 18px;

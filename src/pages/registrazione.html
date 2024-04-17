@@ -39,7 +39,11 @@
             </div>
 
             <div class="accesso-container">
-                <form id="registrationForm" action="/login" method="post">
+                <form
+                    id="registrationForm"
+                    action="/registrazione"
+                    method="post"
+                >
                     <label class="campo" for="nome">Nome:</label>
                     <input
                         class="campo"
@@ -79,19 +83,15 @@
 
                     <div class="contenitore-conferma">
                         <p>
-                            Creando un account, aderisci ai<br/><b>Termini di Servizio</b> e <b>Privacy Policy</b>
+                            Creando un account, aderisci ai<br /><b
+                                >Termini di Servizio</b>e <b>Privacy Policy</b>
                         </p>
                     </div>
 
-                    <div class="contenitore-bottone">
-                        <a href="/">
-                            <button class="accedi" type="submit" onclick="registrazione();">Registrati</button>
-                        </a>
-                    </div>
-
-
+                    <a href="/">
+                        <button class="accedi" type="submit">Registrati</button>
+                    </a>
                 </form>
-                
 
                 <div class="accessi-alt-contenitore">
                     <div class="linea"></div>
@@ -100,7 +100,10 @@
                 </div>
 
                 <div class="contenitore-accessi">
-                    <img src="/pictures/logos_facebook.png" alt="logo-facebook" />
+                    <img
+                        src="/pictures/logos_facebook.png"
+                        alt="logo-facebook"
+                    />
                     <button class="social-login" type="submit">
                         Accedi con Facebook
                     </button>
