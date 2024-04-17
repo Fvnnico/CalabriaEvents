@@ -8,7 +8,6 @@ const connection = require('./db');
 authRouter.get('/', (req, res) => {
 
     const filePath = path.join(__dirname, 'pages', 'homepage.html');
-    console.log('Percorso del file:', filePath);
     res.sendFile(filePath, (err) => {
         if (err) {
             console.log('error');

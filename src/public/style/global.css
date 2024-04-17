@@ -9,6 +9,7 @@
     --header-color: #0E3D59;
     --nero: #000000;
     --scritta-registrati: #008DDA;
+    --bianco: #ffffff;
     /* variabili
         -- nomevariabile 
 
@@ -17,6 +18,9 @@
 
 body{
     background-color: #FFFFFF;
+    display: flex;      
+    flex-direction: column;
+    min-height: 100vh;     /* per far in modo che il footer stia sempre sotto */
 }
 
 h1,h2,h3,h4,h5,h6 {
