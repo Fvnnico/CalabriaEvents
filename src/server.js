@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt'); 
 const mysql = require('mysql2');
 const path = require('path');  // test
+const bcrypt = require('bcrypt');
 
 const app = express();
 const port = 3300;
@@ -93,8 +93,6 @@ app.post('/registrazione', (req, res) => {
         });
     });
 });
-
-
 
 
 
