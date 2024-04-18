@@ -24,9 +24,10 @@ const registrazioneHandler = (req, res) => {
             }
 
             console.log('Utente registrato con successo!');
-            res.redirect('/');
+            
         });
     });
+    res.send("u cunnu e masdsdadsasdadsadasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdas  lorem4000000000000000000000   4000000000000000000")
 };
 
 module.exports = registrazioneHandler;

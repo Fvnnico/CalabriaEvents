@@ -44,7 +44,6 @@
                 <form
                     id="registrationForm"
                     action="/registrazione"
-                    method="post"
                 >
                     <label class="campo" for="nome">Nome:</label>
                     <input
@@ -90,11 +89,16 @@
                         </p>
                     </div>
 
-                    <a href="/">
-                        <button class="accedi" type="submit">Registrati</button>
-                    </a>
+                    <button id="accedi" class="accedi" type="submit" >Registrati</button>
+                                    
+                
                 </form>
+                
+                <div id="pageContent">
 
+                </div>
+
+        
                 <div class="accessi-alt-contenitore">
                     <div class="linea"></div>
                     <p>oppure</p>
@@ -156,5 +160,6 @@
                 </div>
             </div>
         </footer>
+        <script src="/src/scripts/notificaRegistrazione.js"></script>
     </body>
 </html>
