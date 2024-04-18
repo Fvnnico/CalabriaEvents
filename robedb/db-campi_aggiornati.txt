@@ -8,7 +8,7 @@ CREATE TABLE Eventi (
     data_inizio DATE,
     luogo_evento VARCHAR(255),
     descrizione_evento TEXT,
-    categoria_evento ENUM ('Spettacolo e Intrattenimento', 'Mostre ed Esposizioni', 'Sagre e Feste patronali', 'Escursioni e Visite guidate', 'Convegni e Congressi', 'Altro'),
+    categoria_evento ENUM ('Spettacolo e Intrattenimento', 'Mostre, Fiere ed Esposizioni', 'Sagre e Feste patronali', 'Escursioni e Visite guidate', 'Convegni e Congressi', 'Altro'),
     provincia_evento ENUM ( 'Catanzaro','Cosenza', 'Crotone', 'Reggio Calabria',  'Vibo Valentia'),
     locandina_evento VARCHAR(255)
 );
