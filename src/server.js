@@ -18,11 +18,11 @@ const loginHandler = require("./routes/auth");
 // Collega il router all'app principale
 app.use("/", pages);
 
-// operazioni sul database
+// operazioni sul database backend
 app.use("/api", api);
 app.post("/auth", loginHandler)
 
-//  Template engine
+//  Template engine testing per templates
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 

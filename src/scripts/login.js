@@ -17,7 +17,8 @@ document.querySelector("#loginForm").addEventListener("submit", (e) => {
             throw new Error(res.statusText);
         })
         .then((data) => {
-           localStorage.setItem("utente", data);
+            localStorage.setItem("utente", data);
+            window.location.href = "/";
         })
         .catch((err) => console.log(err));
 });
