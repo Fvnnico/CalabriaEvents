@@ -34,6 +34,20 @@ authRouter.get("/login", (req, res) => {
     });
 });
 
+
+// Pagina di homepage admin
+authRouter.get("/admin", (req, res) => {
+    const filePath = path.join(__dirname, "pages", "homepageAdmin.html");
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Errore interno del server");
+        }
+    });
+});
+
+
+
 /*  test di pug */
 authRouter.get("/test", (req, res) => {
     res.render("index", {

@@ -7,7 +7,12 @@ const connection = require('../db');
  * @param {Response} res 
  */
 const loginHandler = (req, res) => {
-    const { email, password } = req.body;
+    const { email, password} = req.body;
+
+    const credenzialiAdmin = {
+        email: 'adminEpico',
+        password: 'admin'
+    };
 
     // Query per ottenere l'utente dal database
     const query = 'SELECT * FROM Utenti WHERE email = ?';
@@ -30,6 +35,7 @@ const loginHandler = (req, res) => {
 
         // Verifica se la password è corretta
         bcrypt.compare(password, user.password, (err, result) => {
+            console.log('Verifico la password');
             if (err || !result) {
                 res.statusText = 'Email o password non valide.';
                 res.status(401).end();
@@ -37,8 +43,17 @@ const loginHandler = (req, res) => {
             }
 
             // Autenticazione riuscita, reindirizza alla homepage
-      /*       console.error(err); */
-            res.json(user);
+            if (email === credenzialiAdmin.email && password === credenzialiAdmin.password) {
+                // Se le credenziali corrispondono a quelle di un admin, restituisci una risposta indicando che l'utente è un admin
+                res.json({ user: user, isAdmin: true });
+                console.log("sei admin");
+            } else {
+                // Altrimenti, restituisci una risposta indicando che l'utente non è un admin
+                res.json({user: user, isAdmin: false });
+                /* res.status(401).json({ message: 'Non sei admin ripbozo' }); */
+                console.log("nn sei admin");
+            }
+            /* res.json(user); */
         });
     });
 };
