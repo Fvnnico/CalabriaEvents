@@ -23,13 +23,20 @@
         <!-- Zona logo, account , menu -->
         <header>
             <nav>
-                <img class="logo" src="/pictures/LOGO.png" alt="logo-sito" />
+                <a href="/">
+                    <img class="logo" src="/pictures/LOGO.png" alt="logo-sito" />
+                </a>
                 <img class="account" src="/pictures/omino.png" alt="account" />
-                <img
-                    class="hamburger-menu"
-                    src="/pictures/hamburger.png"
-                    alt="hamburger-menu"
-                />
+
+                <div class="dropdownContenuto">
+                    <img class="hamburger-menu" id="hamburger" onclick="apriDropdown();" src="/pictures/hamburger.png" alt="hamburger-menu"/>
+                    <div class="dropdownApparso" id="dropdownApparso">
+                        <a href="/">Homepage</a>
+                        <a href="/eventi">Eventi</a>
+                        <a href="/login">Accedi</a>
+                    </div>
+                </div>
+
             </nav>
         </header>
 
@@ -80,4 +87,5 @@
 
 
     </body>
+    <script src="/src/scripts/dropdownHamburger.js"></script>
 </html>

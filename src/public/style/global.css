@@ -31,3 +31,13 @@ a {
     color: var(--text-color);
 }
 
+ul{
+    list-style: none;
+    background-color: var(--scritta-registrati);
+
+}
+
+ul li{
+    display: inline-block;
+    position: relative
+}

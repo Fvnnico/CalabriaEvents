@@ -2,7 +2,7 @@
   "name": "calabriaevents",
   "version": "1.0.0",
   "description": "eventi calabria sito",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
     "start": "nodemon src/server.js"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Fvnnico/CalabriaEvents.git"
   },
-  "author": "rosaria,domenico,vito,davide",
+  "author": "davide",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Fvnnico/CalabriaEvents/issues"
