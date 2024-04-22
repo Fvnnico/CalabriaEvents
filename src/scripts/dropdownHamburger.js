@@ -1,5 +1,4 @@
 
-const btn = document.getElementById("hamburger");
 const img = document.getElementById("hamburger");
 
 function apriDropdown() {
@@ -11,7 +10,7 @@ function apriDropdown() {
     } else {
         img.setAttribute("src", "/pictures/hamburger.png"); // Icona Hamburger
     }
-}
+
 
 
 window.onclick = function (event) {
@@ -26,3 +25,4 @@ window.onclick = function (event) {
         }
     }
 };
+}

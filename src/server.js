@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser"); // per il middleware
-const path = require("path"); // test
+
 
 const app = express();
 const port = 3300;

@@ -84,53 +84,75 @@
 
     .show {display: block;}
     
-   
 
-    /* contenitore ricerca */
+    /* titolo e p */
 
-    .contenitore-search{
+    .contenitore-titoli{
         width: 100%;
         height: 100%;
         display: flex;
-        justify-content: center;
-        align-items: center;
-        
+        justify-content: start;
+        flex-direction: column;
+        padding-left: 26px;
+        padding-right: 26px;
+        margin-top: 23px;
+        margin-bottom: 23px;
     }
 
-    .contenitore-search form{
+    .contenitore-titoli p{
+        color: black;
+        margin-bottom: 1.5em;
+    }
+
+
+
+    /* Form creazione eventi */
+
+    .creazioneEventi-container{
         width: 100%;
-        height: 30px;
-        padding: 0 22px 0 22px;
-        margin-top: 1.5vh;
-        position: relative;
+        height: 100%;
+        display: flex;
+        padding-left: 26px;
+        padding-right: 26px;
     }
 
-    .contenitore-search form input{
+    .creazioneEventi-container form{
         width: 100%;
-        height: 30px;
-        padding-left: 28px;
-    }
-    
-    .contenitore-search form .lente-img{
-        width: 26px;
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        right: 10px;
-        transform: translateY(-50%);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
-    .contenitore-search form .filtro-img{
-        width: 18px;
-        position: absolute;
-        top: 50%;
-        left: 90%;
-        transform: translateY(-50%);
+
+
+
+    .creazioneEventi-container form .titolo,.categoria,.dataInizio,.dataFine,.luogo,.descrizione,.immagine{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
+
+    .creazioneEventi-container form label{
+        margin-top: 20px;
+    }
+
+    .creazioneEventi-container form input{
+        height: 30px;
+    }
+
+
+
+
+
+
+
+
+
 
     /* crea eventi bottone */
 
-    .contenitore-creazione{
+     form .contenitore-creazione{
         width: 100%;
         height: auto;
         display: flex;
@@ -140,7 +162,7 @@
     }
 
 
-    .contenitore-creazione a .creazione-eventi{
+     form .contenitore-creazione .creazione-eventi{
         width: 190px;
         height: 42px;
         background-color: #008DDA;
