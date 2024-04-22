@@ -51,6 +51,7 @@ const crud = function (nomeTabella) {
 
     router.post("/", async (req, res) => {
         const body = req.body;
+        /* encrypta la password nel database */
         if (body.password) {
             body.password = await bcrypt.hash(body.password, 10);
         }
