@@ -99,7 +99,11 @@
         margin-bottom: 23px;
     }
 
-    .contenitore-titoli p{
+    .contenitore-titoli a{
+        width: fit-content;
+    }
+
+    .contenitore-titoli a  p{
         color: black;
         margin-bottom: 1.5em;
     }

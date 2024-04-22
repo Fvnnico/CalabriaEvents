@@ -53,7 +53,6 @@ const loginHandler = (req, res) => {
                 /* res.status(401).json({ message: 'Non sei admin ripbozo' }); */
                 console.log("nn sei admin");
             }
-            /* res.json(user); */
         });
     });
 };
