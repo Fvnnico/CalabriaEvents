@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pagina principale</title>
-        <link rel="stylesheet" href="style/homepage.css" />
+        <link rel="stylesheet" href="style/admin.css" />
         <link rel="stylesheet" href="style/global.css" />
         <!--  variabili globali -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,10 +14,6 @@
             rel="stylesheet"
         />
         <!-- font Titilium Web -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
-        <!-- font rock salt -->
     </head>
     <body>
         <!-- Zona logo, account , menu -->
@@ -26,14 +22,16 @@
                 <a href="/">
                     <img class="logo" src="/pictures/LOGO.png" alt="logo-sito" />
                 </a>
-                <img class="account" src="/pictures/omino.png" alt="account" />
+                <a href="/admin">
+                    <p>Admin</p>
+                    <img class="account" src="/pictures/omino.png" alt="account" />
+                </a>
 
                 <div class="dropdownContenuto">
                     <img class="hamburger-menu" id="hamburger" onclick="apriDropdown();" src="/pictures/hamburger.png" alt="hamburger-menu"/>
                     <div class="dropdownApparso" id="dropdownApparso">
                         <a href="/">Homepage</a>
                         <a href="/eventi">Eventi</a>
-                        <a href="/login">Accedi</a>
                     </div>
                 </div>
 
@@ -41,7 +39,21 @@
         </header>
 
         <main>
-             
+            <div class="contenitore-search">
+                <form action="/search" method="get">
+                    <img class="lente-img" src="/pictures/search.png" alt="ricerca">
+                    <input type="text" name="query" placeholder="Cerca evento...">
+                    <img class="filtro-img" src="/pictures/filtro.png" alt="filtro">
+                </form>
+            </div>
+
+            <div class="contenitore-creazione">
+                <a href="/eventi">
+                    <button class="creazione-eventi">Crea evento + </button>
+                </a>
+            </div>
+            
+            <div class="contenuto-eventi"></div>
         </main>
 
 

@@ -37,7 +37,7 @@ authRouter.get("/login", (req, res) => {
 
 // Pagina di homepage admin
 authRouter.get("/admin", (req, res) => {
-    const filePath = path.join(__dirname, "pages", "homepageAdmin.html");
+    const filePath = path.join(__dirname, "pages", "admin.html");
     res.sendFile(filePath, (err) => {
         if (err) {
             console.log(err);
@@ -46,14 +46,16 @@ authRouter.get("/admin", (req, res) => {
     });
 });
 
-
-
-/*  test di pug */
-authRouter.get("/test", (req, res) => {
-    res.render("index", {
-        title: "Pagina di test",
-        message: "Questa è una pagina di test",
+// Pagina di creazione eventi routing
+authRouter.get("/eventi", (req, res) => {
+    const filePath = path.join(__dirname, "pages", "creazione-eventi.html");
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Errore interno del server");
+        }
     });
 });
+
 
 module.exports = authRouter;

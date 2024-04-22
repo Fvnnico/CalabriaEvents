@@ -25,16 +25,28 @@
         justify-content: center;
         align-items: center;
     }
+    
+    nav a:nth-child(2){    
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
 
     nav a .logo {
         margin-left: 1.3em;
         margin-right: auto;
     }
 
-    nav .account {
+    nav a .account {
         align-items: center;
-        margin-right: 1em;
+        margin-left: 0.5em;
     }
+
+
+
 
     /* dropdown menu hamburger */
 
@@ -71,37 +83,7 @@
 
     .show {display: block;}
     
-    /* foto hero */
-
-    .contenitore-hero{
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-        flex-direction: column;
-        position: relative;
-    }
-
-    .contenitore-hero .foto-hero{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        
-    }
-
-    .contenitore-hero h1{
-        position: absolute;
-        top: 10%;
-        font-size: 13px;
-        font-family: "Rock Salt", "Titilium Web";
-        color: var(--bianco);
-        margin: 30px 0 30px 0;
-        text-align: center;
-    }
-
-
+   
 
     /* contenitore ricerca */
 
@@ -111,43 +93,60 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        
     }
 
     .contenitore-search form{
         width: 100%;
         height: 30px;
-        position: absolute;
-        bottom: 30%;
         padding: 0 22px 0 22px;
+        margin-top: 1.5vh;
+        position: relative;
     }
 
     .contenitore-search form input{
         width: 100%;
         height: 30px;
-        padding-left: 30px;
+        padding-left: 28px;
     }
     
     .contenitore-search form .lente-img{
+        width: 26px;
         position: absolute;
         top: 50%;
         left: 5%;
         right: 10px;
         transform: translateY(-50%);
-        width: 26px;
     }
 
     .contenitore-search form .filtro-img{
+        width: 18px;
         position: absolute;
         top: 50%;
-        left: 89%;
+        left: 90%;
         transform: translateY(-50%);
-        width: 20px;
+    }
+
+    /* crea eventi bottone */
+
+    .contenitore-creazione{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 23px;
     }
 
 
-
-
-
+    .contenitore-creazione a .creazione-eventi{
+        width: 190px;
+        height: 42px;
+        background-color: #008DDA;
+        color: #FFF;
+        border-radius: 4px;
+        font-size: 18px;
+    }
 
 
     /* footer */

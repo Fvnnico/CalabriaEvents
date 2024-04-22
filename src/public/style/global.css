@@ -41,3 +41,14 @@ ul li{
     display: inline-block;
     position: relative
 }
+
+button{
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+p{
+    color: #ffffff;
+}

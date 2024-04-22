@@ -22,9 +22,6 @@ app.use("/", pages);
 app.use("/api", api);
 app.post("/auth", loginHandler)
 
-//  Template engine testing per templates
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "pug");
 
 // Gestione degli errori per le route non trovate
 app.use((req, res, next) => {

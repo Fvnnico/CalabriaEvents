@@ -19,10 +19,8 @@ document.querySelector("#loginForm").addEventListener("submit", (e) => {
         .then((data) => {
             localStorage.setItem("utente", data);
             if (data.isAdmin) {
-                // Se l'utente è un admin, reindirizza a una pagina esclusiva per gli admin
                 window.location.href = "/admin";
             } else {
-                // Altrimenti, reindirizza alla home page o a una pagina normale per gli utenti non-admin
                 window.location.href = "/";
             }
         })
