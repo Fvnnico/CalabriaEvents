@@ -1,5 +1,5 @@
 const express = require("express");
-const multer = require("multer");
+const multer = require("multer"); // per caricare dati
 const bodyParser = require("body-parser"); // per il middleware
 
 
@@ -8,7 +8,7 @@ const port = 3300;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const db = require("./db");
+
 app.use("/pictures", express.static("src/public/pictures"));
 app.use("/style", express.static("src/public/style"));
 app.use("/src/scripts", express.static("src/scripts"));
@@ -19,7 +19,8 @@ const loginHandler = require("./routes/auth");
 
 // Collega il router all'app principale
 app.use("/", pages);
-app.post("/upload", multer({ dest: './uploads/' }).single("immagine"), (req, res) => {
+
+app.post("/upload", multer({ dest: './uploads/' }).single("immagine"), (req, res) => {  // per gli eventi json
     console.log("files", req.file);
     console.log("evento", req.body.evento);
 })
