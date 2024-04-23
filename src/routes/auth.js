@@ -6,6 +6,7 @@ const connection = require('../db');
  * @param {Request} req 
  * @param {Response} res 
  */
+
 const loginHandler = (req, res) => {
     const { email, password} = req.body;
 
@@ -41,19 +42,15 @@ const loginHandler = (req, res) => {
                 res.status(401).end();
                 return;
             }
-
-            // Autenticazione riuscita, reindirizza alla homepage
-            if (email === credenzialiAdmin.email && password === credenzialiAdmin.password) {
-                // Se le credenziali corrispondono a quelle di un admin, restituisci una risposta indicando che l'utente è un admin
-                res.json({ user: user, isAdmin: true });
-                console.log("sei admin");
-            } else {
-                // Altrimenti, restituisci una risposta indicando che l'utente non è un admin
-                res.json({user: user, isAdmin: false });
-                /* res.status(401).json({ message: 'Non sei admin ripbozo' }); */
-                console.log("nn sei admin");
-            }
         });
+
+        if (email === credenzialiAdmin.email && password === credenzialiAdmin.password) {
+            res.json({ user: user, isAdmin: true });
+            console.log("sei admin");
+        } else {
+            res.json({user: user, isAdmin: false });
+            console.log("nn sei admin");
+        }
     });
 };
 
