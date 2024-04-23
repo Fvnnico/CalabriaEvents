@@ -1,6 +1,7 @@
 const api = require("express").Router();
-const bcrypt = require('bcrypt');
+const bcrypt = require("bcrypt");
 const db = require("../db");
+const multer = require("multer");
 
 const crud = function (nomeTabella) {
     const router = require("express").Router();
@@ -51,32 +52,40 @@ const crud = function (nomeTabella) {
 
     router.post("/", async (req, res) => {
         const body = req.body;
+        console.log(body);
         /* encrypta la password nel database */
         if (body.password) {
             body.password = await bcrypt.hash(body.password, 10);
         }
-        db.query(`INSERT INTO ${nomeTabella} SET ` + db.escape(body), (err, results, fields) => {
-            if (err) {
-                console.error(err);
-                res.status(500).send("Errore interno del server");
-                return;
+
+        db.query(
+            `INSERT INTO ${nomeTabella} SET ` + db.escape(body),
+            (err, results, fields) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send("Errore interno del server");
+                    return;
+                }
+                if (!results) {
+                    res.status(404).send("Nessun elemento trovato");
+                    return;
+                }
+                if (results.length === 0) {
+                    res.status(404).send("Nessun elemento trovato");
+                    return;
+                }
+                res.json(results);
             }
-            if (!results) {
-                res.status(404).send("Nessun elemento trovato");
-                return;
-            }
-            if (results.length === 0) {
-                res.status(404).send("Nessun elemento trovato");
-                return;
-            }
-            res.json(results);
-        });
+        );
     });
 
     return router;
 };
 
 api.use("/utenti", crud("utenti"));
+api.post("/upload", async (req, res) => {
+    console.log("files", req.files);
+})
 api.use("/eventi", crud("eventi"));
 
 module.exports = api;

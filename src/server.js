@@ -1,12 +1,15 @@
 const express = require("express");
+const multer = require("multer");
 const bodyParser = require("body-parser"); // per il middleware
 
 
 const app = express();
 const port = 3300;
 
+app.use(multer().single().);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const db = require("./db");
 app.use("/pictures", express.static("src/public/pictures"));
 app.use("/style", express.static("src/public/style"));
 app.use("/src/scripts", express.static("src/scripts"));
@@ -19,19 +22,14 @@ const loginHandler = require("./routes/auth");
 app.use("/", pages);
 
 // operazioni sul database backend
-app.use("/api", api);
+app.use("/api", api); 
 app.post("/auth", loginHandler);
-
-
-
 
 // Gestione degli errori per le route non trovate
 app.use((req, res, next) => {
     res.status(404).send("Route non trovata.");
     next();
 });
-
-
 
 // Avvio del server
 app.listen(port, () => {

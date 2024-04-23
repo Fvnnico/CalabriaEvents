@@ -130,7 +130,7 @@
 
 
 
-    .creazioneEventi-container form .titolo,.categoria,.dataInizio,.dataFine,.luogo,.descrizione,.immagine{
+    .creazioneEventi-container form .titolo,.categoria,.data_inizio,.data_fine,.luogo,.descrizione,.immagine{
         width: 100%;
         height: 100%;
         display: flex;
