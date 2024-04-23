@@ -8,6 +8,7 @@ const port = 3300;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+const db = require("./db");
 
 app.use("/pictures", express.static("src/public/pictures"));
 app.use("/style", express.static("src/public/style"));
@@ -21,8 +22,20 @@ const loginHandler = require("./routes/auth");
 app.use("/", pages);
 
 app.post("/upload", multer({ dest: './uploads/' }).single("immagine"), (req, res) => {  // per gli eventi json
-    console.log("files", req.file);
-    console.log("evento", req.body.evento);
+    const { titolo, categoria, data_inizio, data_fine, luogo, descrizione } = req.body.evento;
+    db.query(
+        'INSERT INTO eventi (titolo, categoria, data_inizio, data_fine, luogo, descrizione) VALUES (?, ?, ?, ?, ?, ?)',
+        [titolo, categoria, data_inizio, data_fine, luogo, descrizione],
+        (err, result) => {
+          if (err) {
+            console.error('Errore durante l\'inserimento dell\'evento nel database MySQL:', err);
+            res.status(500).send('Errore durante l\'inserimento dell\'evento nel database MySQL');
+            return;
+          }
+          console.log('Nuovo evento inserito nel database MySQL');
+          res.status(201).send('Evento inserito correttamente nel database MySQL');
+        }
+      );
 })
 
 // operazioni sul database backend
