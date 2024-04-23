@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,9 +6,9 @@
     font-family: "Titillium Web", Courier, monospace;
 }
 :root {
-    --header-color: #0E3D59;
+    --header-color: #0e3d59;
     --nero: #000000;
-    --scritta-registrati: #008DDA;
+    --scritta-registrati: #008dda;
     --bianco: #ffffff;
     /* variabili
         -- nomevariabile 
@@ -16,14 +16,29 @@
     */
 }
 
-body{
-    background-color: #FFFFFF;
-    display: flex;      
-    flex-direction: column;
-    min-height: 100vh;     /* per far in modo che il footer stia sempre sotto */
+html,
+:root {
+    max-height: 1351px;
+    max-width: 430px;
+    min-height: 1351px;
+    min-width: 430px;
+    height: 1351px;
+    width: 430px;
 }
 
-h1,h2,h3,h4,h5,h6 {
+body {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* per far in modo che il footer stia sempre sotto */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 400;
 }
 a {
@@ -31,21 +46,19 @@ a {
     color: var(--text-color);
 }
 
-ul{
+ul {
     list-style: none;
     background-color: var(--scritta-registrati);
-
 }
 
-ul li{
+ul li {
     display: inline-block;
-    position: relative
+    position: relative;
 }
 
-button{
+button {
     border: none;
     outline: none;
     cursor: pointer;
     color: #ffffff;
 }
-

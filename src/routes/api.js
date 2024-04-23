@@ -52,7 +52,6 @@ const crud = function (nomeTabella) {
 
     router.post("/", async (req, res) => {
         const body = req.body;
-        console.log(body);
         /* encrypta la password nel database */
         if (body.password) {
             body.password = await bcrypt.hash(body.password, 10);
@@ -83,9 +82,6 @@ const crud = function (nomeTabella) {
 };
 
 api.use("/utenti", crud("utenti"));
-api.post("/upload", async (req, res) => {
-    console.log("files", req.files);
-})
 api.use("/eventi", crud("eventi"));
 
 module.exports = api;

@@ -6,7 +6,6 @@ const bodyParser = require("body-parser"); // per il middleware
 const app = express();
 const port = 3300;
 
-app.use(multer().single().);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./db");
@@ -20,6 +19,10 @@ const loginHandler = require("./routes/auth");
 
 // Collega il router all'app principale
 app.use("/", pages);
+app.post("/upload", multer({ dest: './uploads/' }).single("immagine"), (req, res) => {
+    console.log("files", req.file);
+    console.log("evento", req.body.evento);
+})
 
 // operazioni sul database backend
 app.use("/api", api); 
@@ -30,7 +33,6 @@ app.use((req, res, next) => {
     res.status(404).send("Route non trovata.");
     next();
 });
-
 // Avvio del server
 app.listen(port, () => {
     console.log(`Server in ascolto sulla porta ${port}`);

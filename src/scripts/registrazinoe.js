@@ -1,3 +1,5 @@
+window.resizeTo(1351, 430);
+
 function registrazione() {
     return new Promise((resolve, reject) => {
         
