@@ -55,43 +55,6 @@
 
 
 
-
-    /* dropdown menu hamburger */
-
-    nav .dropdownContenuto{
-        width: auto;
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
-
-    nav .dropdownContenuto .hamburger-menu {
-        margin-right: 1.6em;
-        cursor: pointer;
-    }
-
-    .dropdownApparso{
-        display: none;
-        position: absolute;
-        left: 70%;
-        top: 5%;
-        background-color: #008DDA;
-        min-width:100px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        border-radius: 8px;
-        z-index: 1;
-    }
-
-    .dropdownContenuto a {
-        color: #FFF;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-    }
-
-    .show {display: block;}
-    
-
     /* titolo e p */
 
     .contenitore-titoli{
