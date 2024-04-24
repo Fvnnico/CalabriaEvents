@@ -3,7 +3,7 @@ const multer = require("multer"); // per caricare dati
 const bodyParser = require("body-parser"); // per il middleware
 
 const app = express();
-const port = 80;
+const port = 3300;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
