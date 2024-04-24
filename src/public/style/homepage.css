@@ -1,7 +1,5 @@
 @media screen and (min-width: 430px) {
-    main{
-        flex-grow: 1;
-    }
+    
     
     /* Zona logo, account , hamburg menu */
     header {
