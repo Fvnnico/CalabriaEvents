@@ -17,7 +17,8 @@
 }
 
 html,
-:root {
+:root,
+body {
     max-height: 1351px;
     max-width: 430px;
     min-height: 1351px;
@@ -30,7 +31,6 @@ body {
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* per far in modo che il footer stia sempre sotto */
 }
 
 h1,

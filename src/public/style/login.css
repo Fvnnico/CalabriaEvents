@@ -1,4 +1,18 @@
 @media screen and (min-width: 430px) {
+    main {
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    main::--webkit-scrollbar {
+        display: none;
+    }
+    
+
+
     /* Zona logo, account , hamburg menu */
     header {
         width: 100%;
@@ -71,7 +85,6 @@
 
     .consiglio-registrazione-container {
         width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -95,7 +108,6 @@
 
     .accesso-container {
         width: 100%;
-        height: 100%;
         padding-left: 31px;
         padding-right: 26px;
     }
@@ -215,7 +227,6 @@
 
     .problemi-accesso {
         width: 100%;
-        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;

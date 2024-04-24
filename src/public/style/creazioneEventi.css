@@ -1,6 +1,13 @@
-@media screen and (min-width: 430px) {
-    main{
-        flex-grow: 1;
+    main {
+        flex: 1;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    main::--webkit-scrollbar {
+        display: none;
     }
     
     /* Zona logo, account , hamburg menu */
@@ -89,7 +96,7 @@
 
     .contenitore-titoli{
         width: 100%;
-        height: 100%;
+        
         display: flex;
         justify-content: start;
         flex-direction: column;
@@ -114,7 +121,7 @@
 
     .creazioneEventi-container{
         width: 100%;
-        height: 100%;
+
         display: flex;
         padding-left: 26px;
         padding-right: 26px;
@@ -243,4 +250,3 @@
     }
 
 
-}
