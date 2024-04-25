@@ -29,7 +29,7 @@ app.post(
         const immagine = req.file.path; // Ottieni il percorso del file dell'immagine caricata
         db.query(
             "INSERT INTO eventi SET ?",
-            [{ ...evento, immagine: immagine }], // Aggiungi il percorso del file all'array di valori
+            [{ ...evento, immagine: immagine }], 
             (err, result) => {
                 if (err) {
                     console.error(
@@ -41,13 +41,15 @@ app.post(
                     );
                     return;
                 }
-                console.log("Nuovo evento inserito nel database MySQL");
-                res.status(201).send(
-                    "Evento inserito correttamente nel database MySQL"
-                );
-                console.log("files", req.file);
-                console.log("evento", req.body.evento);
-                res.ren
+                res.status(201).json({
+                    evento: evento,
+                    immagine: immagine
+                });
+                console.log("Inviato JSON");
+                
+                /* console.log("files", req.file);
+                console.log("evento", req.body.evento); */
+                
             }
         );
     }

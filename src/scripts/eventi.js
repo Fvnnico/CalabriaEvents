@@ -21,13 +21,27 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
 
     xhr.onload = function () {
         if (xhr.status >= 200 && xhr.status < 300) {
-            // Richiesta completata con successo
-            console.log(xhr.responseText);
+            console.log("Richiesta completata con successo");
+            const response = JSON.parse(xhr.responseText); // Parse la risposta JSON
+            const evento = response.evento; // Ottenere direttamente l'oggetto evento dalla risposta
+            const responseDiv = document.querySelector("#response");
+            responseDiv.innerHTML = `
+                <h2>Evento Creato con Successo</h2>
+                <p>Titolo: ${evento.titolo}</p>
+                <p>Categoria: ${evento.categoria}</p>
+                <p>Data inizio: ${evento.data_inizio}</p>
+                <p>Data fine: ${evento.data_fine}</p>
+                <p>Luogo: ${evento.luogo}</p>
+                <p>Descrizione: ${evento.descrizione}</p>
+                <img src="${response.immagine}" alt="Immagine dell'evento">
+            `;
         } else {
             // Gestione degli errori
             console.error(xhr.statusText);
         }
     };
+    
+    
 
     xhr.onerror = function () {
         // Gestione degli errori di rete
