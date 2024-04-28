@@ -1,6 +1,7 @@
 const express = require("express");
 const multer = require("multer"); // per caricare dati
 const bodyParser = require("body-parser"); // per il middleware
+const path = require("path");
 
 const app = express();
 const port = 3300;
@@ -20,13 +21,12 @@ const loginHandler = require("./routes/auth");
 // Collega il router all'app principale
 app.use("/", pages);
 
-app.post(
-    "/upload",
-    multer({ dest: "./uploads/" }).single("immagine"),
-    (req, res) => {
-        // per gli eventi json
+
+
+app.post("/upload",multer({ dest: "./uploads/" }).single("immagine"),(req, res) => {
+        
         const evento = JSON.parse(req.body.evento);
-        const immagine = req.file.path; // Ottieni il percorso del file dell'immagine caricata
+        const immagine = req.file.path.replace(/\\/g, '/'); // Ottieni il percorso del file dell'immagine caricata
         db.query(
             "INSERT INTO eventi SET ?",
             [{ ...evento, immagine: immagine }], 
@@ -43,13 +43,10 @@ app.post(
                 }
                 res.status(201).json({
                     evento: evento,
-                    immagine: immagine
+                    immagine: immagine,
                 });
+                console.log({ evento: evento, immagine: immagine });
                 console.log("Inviato JSON");
-                
-                /* console.log("files", req.file);
-                console.log("evento", req.body.evento); */
-                
             }
         );
     }

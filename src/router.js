@@ -2,6 +2,7 @@ const authRouter = require("express").Router();
 const path = require("path");
 
 
+
 // Pagina homepage routing
 authRouter.get("/", (req, res) => {
     const filePath = path.join(__dirname, "pages", "homepage.html");
@@ -49,6 +50,18 @@ authRouter.get("/admin", (req, res) => {
 // Pagina di creazione eventi routing
 authRouter.get("/eventi", (req, res) => {
     const filePath = path.join(__dirname, "pages", "creazione-eventi.html");
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Errore interno del server");
+        }
+    });
+});
+
+
+// route immagini
+authRouter.get("/uploads/:img", (req, res) => {
+    const filePath = path.join(__dirname, "../uploads", req.params.img);
     res.sendFile(filePath, (err) => {
         if (err) {
             console.log(err);

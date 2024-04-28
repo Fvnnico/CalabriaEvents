@@ -32,6 +32,7 @@ const loginHandler = (req, res) => {
             return;
         }
 
+        // serve a contenere i dati dell'utente 
         const user = results[0];
 
         // Verifica se la password è corretta
@@ -46,10 +47,8 @@ const loginHandler = (req, res) => {
 
         if (email === credenzialiAdmin.email && password === credenzialiAdmin.password) {
             res.json({ user: user, isAdmin: true });
-            console.log("sei admin");
         } else {
             res.json({user: user, isAdmin: false });
-            console.log("nn sei admin");
         }
     });
 };
