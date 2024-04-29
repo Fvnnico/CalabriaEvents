@@ -6,7 +6,7 @@ xhr.onload = function () {
         console.log(eventi);
         const container = document.querySelector("#eventiContainer");
         
-        // Aggiungi dinamicamente la parte desiderata della pagina per ogni evento
+        
         eventi.forEach(evento => {
             const html = `
                 <div class="eventoContainer">
