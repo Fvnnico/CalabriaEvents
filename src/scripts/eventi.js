@@ -32,6 +32,7 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
     xhr.onerror = function () {
         console.error("Errore di rete durante la richiesta.");
     };
+
     xhr.send(formData);
 });
 

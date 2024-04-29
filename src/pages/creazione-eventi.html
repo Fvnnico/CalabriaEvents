@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="style/dropdown.css" />
         <link rel="stylesheet" href="style/eventiCard.css">
         <link rel="stylesheet" href="style/global.css" />
+        <link rel="stylesheet" href="style/modale.css" />
+
         <!--  variabili globali -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -89,7 +91,21 @@
                   </form>
             </div>
             
-            <div id="response"></div>
+            <div id="myModal" class="modal-container">
+                    
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h2>Creazione evento</h2>    
+                    <div class="accessi-alt-contenitore">
+                        <div class="linea"></div>
+                    </div>
+                    <p>Evento creato con successo.</p>
+                    <a  href="/admin">
+                        <span class="close">Visualizza gli eventi inseriti</span>
+                    </a>
+                </div>
+
+            </div>
         </main>
 
 
@@ -117,6 +133,6 @@
             </div>
         </footer>
         <script src="/src/scripts/dropdownHamburger.js"></script>
-        <script src="/src/scripts/eventi.js"></script>
+        <script src="/src/scripts/creaEventi.js"></script>
     </body>
 </html>
