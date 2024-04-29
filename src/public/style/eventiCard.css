@@ -42,7 +42,7 @@
 }
 
 .topEventoContainer .dataInizio{
-    background-color: #FF473E;
+    background-color: #008DDA;
     padding: 8px;
     border-radius: 8px;
     color: white;
@@ -52,7 +52,7 @@
 .topEventoContainer img{
     width: 32px;
     height: 32px;
-    background-color: #FF473E;
+    background-color: white;
     border-radius: 8px;
     padding: 8px;
 }
@@ -63,8 +63,45 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.7); 
+    background-color: #1E3E5990;
     padding: 10px;
-    box-sizing: border-box;
     z-index: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.bottomEventoContainer .bottomEventoSu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.bottomEventoContainer .bottomEventoGiu{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.bottomEventoContainer .bottomEventoGiu .luogo{
+    margin-left: 0.5em;
+}
+
+.bottomEventoContainer .bottomEventoGiu .posizioneImmagine{
+    width: 12px;
+    height: 18px;
+}
+
+
+.bottomEventoContainer .bottomEventoGiu .leggiPiu{
+    width: 10em;
+    padding: 10px;
+    background-color: #008DDA;
+    border-radius: 6px;
 }

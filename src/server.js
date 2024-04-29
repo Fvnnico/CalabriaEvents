@@ -26,10 +26,10 @@ app.use("/", pages);
 app.post("/upload",multer({ dest: "./uploads/" }).single("immagine"),(req, res) => {
         
         const evento = JSON.parse(req.body.evento);
-        const immagine = req.file.path.replace(/\\/g, '/'); // Ottieni il percorso del file dell'immagine caricata
+        const immagine = req.file; // Ottieni il percorso del file dell'immagine caricata
         db.query(
             "INSERT INTO eventi SET ?",
-            [{ ...evento, immagine: immagine }], 
+            [{ ...evento, immagine: immagine.path.replace("\\", '/')}], 
             (err, result) => {
                 if (err) {
                     console.error(
@@ -43,10 +43,8 @@ app.post("/upload",multer({ dest: "./uploads/" }).single("immagine"),(req, res) 
                 }
                 res.status(201).json({
                     evento: evento,
-                    immagine: immagine,
+                    immagine: immagine.path.replace("\\", '/'),
                 });
-                console.log({ evento: evento, immagine: immagine });
-                console.log("Inviato JSON");
             }
         );
     }

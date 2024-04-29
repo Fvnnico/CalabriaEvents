@@ -23,27 +23,35 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
         if (xhr.status >= 200 && xhr.status < 300) {
             const response = JSON.parse(xhr.responseText);
             const evento = response.evento;
+            const immagine = response.immagine;
             const responseDiv = document.querySelector("#response");
             responseDiv.innerHTML = `
                 
                 <div class="eventoContainer">
                     <h1 class="categoria">Categoria: ${evento.categoria}</h1>
-                    <div class="sfondoContainer">
-                        <div class="topEventoContainer">
-                            <div class="dataInizio">${evento.data_inizio}</div>
-                            <img src="/pictures/cestino.png" alt="cestino">
-                        </div>
-                        <img src="${response.immagine}" alt="Immagine dell'evento">
+                <div class="sfondoContainer">
+                    <div class="topEventoContainer">
+                        <div class="dataInizio">${evento.data_inizio}</div>
+                        <img src="/pictures/cestino.png" alt="cestino">
+                    </div>
+                    <img src="${immagine}" alt="Immagine dell'evento">
 
-                        <div class="bottomEventoContainer">
-                            <p>Titolo: ${evento.titolo}</p>
-                            <p>Luogo: ${evento.luogo}</p>
+                    <div class="bottomEventoContainer">
+                        <div class="bottomEventoSu">
+                            <div>Titolo: ${evento.titolo}</div>
+                            
+                        </div>
+                        <div class="bottomEventoGiu">
+                            <img class="posizioneImmagine" src="/pictures/posizione.png">
+                            <div class="luogo">Luogo: ${evento.luogo}</div>
                             <button class="leggiPiu">Leggi di più</button>
                         </div>
-                    
+                        
                     </div>
-                    
+                
                 </div>
+                
+            </div>
                 
             `;
         } else {
