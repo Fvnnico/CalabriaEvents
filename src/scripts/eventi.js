@@ -24,36 +24,6 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
             const response = JSON.parse(xhr.responseText);
             const evento = response.evento;
             const immagine = response.immagine;
-            const responseDiv = document.querySelector("#response");
-            responseDiv.innerHTML = `
-                
-                <div class="eventoContainer">
-                    <h1 class="categoria">Categoria: ${evento.categoria}</h1>
-                <div class="sfondoContainer">
-                    <div class="topEventoContainer">
-                        <div class="dataInizio">${evento.data_inizio}</div>
-                        <img src="/pictures/cestino.png" alt="cestino">
-                    </div>
-                    <img src="${immagine}" alt="Immagine dell'evento">
-
-                    <div class="bottomEventoContainer">
-                        <div class="bottomEventoSu">
-                            <div>Titolo: ${evento.titolo}</div>
-                            
-                        </div>
-                        <div class="bottomEventoGiu">
-                            <img class="posizioneImmagine" src="/pictures/posizione.png">
-                            <div class="luogo">Luogo: ${evento.luogo}</div>
-                            <button class="leggiPiu">Leggi di più</button>
-                        </div>
-                        
-                    </div>
-                
-                </div>
-                
-            </div>
-                
-            `;
         } else {
             console.error(xhr.statusText);
         }
@@ -65,3 +35,14 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
 
     xhr.send(formData);
 });
+
+function elimina() {
+    const cestino = document.getElementById("cestino");
+
+    cestino.addEventListener("click", function () {
+        const eventoContainer = document.querySelector(".eventoContainer");
+        if(eventoContainer){
+            eventoContainer.remove();
+        }
+    });
+}
