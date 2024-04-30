@@ -1,11 +1,21 @@
-// da fixa
-function elimina() {
-    const cestino = document.getElementById("cestino");
-
-    cestino.addEventListener("click", function () {
-        const eventoContainer = document.querySelector(".eventoContainer");
-        if(eventoContainer){
-            eventoContainer.remove();
+function elimina(id_evento) {
+    fetch(`/api/eventi/${id_evento}`, {
+        method: 'DELETE',
+    })
+    .then(response => {
+        if (response.ok) {
+            // Rimuovi l'evento dall'HTML
+            
+            const eventoContainer = document.querySelector(`[id_evento="${id_evento}"]`);
+            if (eventoContainer) {
+                eventoContainer.remove();
+            }
+        } else {
+            console.error('Errore durante l\'eliminazione dell\'evento:', response.statusText);
+            console.log(typeof id_evento);
         }
+    })
+    .catch(error => {
+        console.error('Errore di rete durante la richiesta:', error);
     });
 }

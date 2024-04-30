@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const db = require("../db");
 const multer = require("multer");
 
-const crud = function (nomeTabella) {
+const crudUtenti = function (nomeTabella) {
     const router = require("express").Router();
 
     //ritorna tutto
@@ -30,8 +30,7 @@ const crud = function (nomeTabella) {
     router.get("/:id", (req, res) => {
         const id = req.params.id;
         db.query(
-            `SELECT * FROM ${nomeTabella} WHERE id_utente = ${id}`,
-            (err, [results, _]) => {
+            `SELECT * FROM ${nomeTabella} WHERE id_utente = ${id}`,(err, [results, _]) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send("Errore interno del server");
@@ -81,7 +80,75 @@ const crud = function (nomeTabella) {
     return router;
 };
 
-api.use("/utenti", crud("utenti"));
-api.use("/eventi", crud("eventi"));
+
+
+const crudEventi = function (nomeTabella) {
+    const router = require("express").Router();
+
+    router.get("/", (req, res) => {
+        db.query("SELECT * FROM " + nomeTabella, (err, [results, _]) => {
+            if (err) {
+                console.error(err);
+                res.status(500).send("Errore interno del server");
+                return;
+            }
+            if (!results) {
+                res.status(404).send("Nessun elemento trovato");
+                return;
+            }
+            if (results.length === 0) {
+                res.status(404).send("Nessun elemento trovato");
+                return;
+            }
+            res.json(results);
+        });
+    });
+
+    router.get("/:id", (req, res) => {
+        const id = req.params.id;
+        db.query(
+            `SELECT * FROM ${nomeTabella} WHERE id_evento = ${id}`,(err, results) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send("Errore interno del server");
+                    return;
+                }
+                if (!results) {
+                    res.status(404).send("Nessun elemento trovato");
+                    return;
+                }
+                if (results.length === 0) {
+                    res.status(404).send("Nessun elemento trovato");
+                    return;
+                }
+                res.json(results);
+            }
+        );
+    });
+
+    router.delete("/:id", (req, res) => {
+        const id = req.params.id;
+        console.log(req.params.id);
+        db.query(
+            `DELETE FROM ${nomeTabella} WHERE id_evento = ${id}`, (err, results) => {
+                if (err) {
+                    console.error(err);
+                    res.status(500).send("Errore interno del server");
+                    return;
+                }
+                if (results.affectedRows === 0) {
+                    res.status(404).send("Nessun elemento trovato");
+                    return;
+                }
+                res.status(204).send(results); // 204 No Content
+            }
+        )
+    });
+    return router;
+};
+
+
+api.use("/utenti", crudUtenti("utenti"));
+api.use("/eventi", crudEventi("eventi"));
 
 module.exports = api;

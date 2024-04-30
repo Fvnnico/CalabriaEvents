@@ -59,14 +59,20 @@
 
     .consiglio-registrazione-container h1 {
         color: var(--nero);
-    }
-
-    .consiglio-registrazione-container h2 {
-        color: var(--scritta-registrati);
+        font-size: 22px;
+        margin-bottom: 12px;
     }
 
     .consiglio-registrazione-container h3 {
         color: #acacac;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .consiglio-registrazione-container h2 {
+        color: var(--scritta-registrati);
+        font-size: 16px;
+        
     }
 
     /* zona dove si inseriranno i dati */
@@ -91,6 +97,7 @@
     .accesso-container form:nth-child(1) input {
         width: 378px;
         padding-left: 5px; /* spazio dentro l'input */
+        height: 40px;
     }
 
     .accesso-container form:nth-child(1) .campo {
@@ -117,14 +124,6 @@
 
     /* bottone registrati */
 
-    .accesso-container a {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1.1em;
-    }
 
     .accesso-container .accedi {
         width: 378px;
@@ -133,19 +132,8 @@
         background-color: var(--scritta-registrati);
         color: #ffffff;
         cursor: pointer;
-        margin-top: 10px;
-    }
-
-
-    /* accessi alternativi linea intermezzo */
-
-    .accessi-alt-contenitore {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 4.5vh;
+        box-shadow: 0px 1px 4px #000000;
+        margin-top: 2em;
     }
 
     
@@ -153,7 +141,7 @@
 
     .problemi-accesso {
         width: 100%;
-  
+        font-size: 14px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -161,68 +149,3 @@
         color: #acacac;
     }
 
-    /* footer */
-
-    footer {
-        width: 100%;
-        height: 345px;
-        background-color: var(--header-color);
-        margin-top: 72px;
-    }
-
-    .contenitore-footer {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .contenitore-footer .logo {
-        margin-top: 30px;
-    }
-
-    .contenitore-loghi {
-        margin-top: 2vh;
-    }
-
-    .contenitore-loghi img {
-        margin-right: 2vw;
-    }
-
-    .contenitore-scritte {
-        width: 100%;
-        height: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 1.2em;
-    }
-
-    .contenitore-scritte p {
-        color: white;
-    }
-
-    .contenitore-ricerca {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: start;
-    }
-    .contenitore-ricerca p {
-        color: white;
-        margin-right: 1em;
-    }
-
-    .contenitore-riserve {
-        width: 100%;
-        height: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-    }

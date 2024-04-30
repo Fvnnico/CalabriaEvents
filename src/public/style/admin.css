@@ -79,10 +79,10 @@
     }
     
     .contenitore-search form .lente-img{
-        width: 26px;
+        width: 22px;
         position: absolute;
         top: 50%;
-        left: 5%;
+        left: 6%;
         right: 10px;
         transform: translateY(-50%);
     }
