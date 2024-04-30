@@ -60,15 +60,23 @@
 
     .consiglio-registrazione-container h1 {
         color: var(--nero);
-    }
-
-    .consiglio-registrazione-container h2 {
-        color: var(--scritta-registrati);
+        font-size: 22px;
+        margin-bottom: 12px;
     }
 
     .consiglio-registrazione-container h3 {
         color: #acacac;
+        font-size: 14px;
+        margin-bottom: 10px;
     }
+
+    .consiglio-registrazione-container h2 {
+        color: var(--scritta-registrati);
+        font-size: 16px;
+        
+    }
+
+    
 
     /* zona dove si inseriranno i dati */
 
@@ -91,6 +99,7 @@
     .accesso-container form:nth-child(1) input {
         width: 100%;
         padding-left: 5px; /* spazio dentro l'input */
+        height: 40px;
     }
 
     .accesso-container form:nth-child(1) .email,
@@ -111,6 +120,7 @@
     .accesso-container form:nth-child(2) input {
         /* Quadratino affianco mantieniti collegato */
         margin-right: 8px;
+        height: 40px;
     }
 
     /* bottone accedere */
@@ -131,6 +141,7 @@
         background-color: var(--scritta-registrati);
         color: #ffffff;
         cursor: pointer;
+        box-shadow: 0px 1px 4px #000000;
     }
 
     /* accessi alternativi linea intermezzo */
@@ -200,69 +211,5 @@
         color: #acacac;
     }
 
-    /* footer */
-
-    footer {
-        width: 100%;
-        height: 345px;
-        background-color: var(--header-color);
-        margin-top: 72px;
-    }
-
-    .contenitore-footer {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .contenitore-footer .logo {
-        margin-top: 3.4vh;
-    }
-
-    .contenitore-loghi {
-        margin-top: 2vh;
-    }
-
-    .contenitore-loghi img:nth-child(-n + 4) {
-        margin-right: 2vw;
-    }
-
-    .contenitore-scritte {
-        width: 100%;
-        height: 20%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-top: 1.2em;
-    }
-
-    .contenitore-scritte p {
-        color: white;
-    }
-
-    .contenitore-ricerca {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: start;
-    }
-    .contenitore-ricerca p {
-        color: white;
-        margin-right: 16px;
-    }
-
-    .contenitore-riserve {
-        width: 100%;
-        height: 30%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        text-align: center;
-    }
+   
 }

@@ -10,13 +10,12 @@ xhr.onload = function () {
         eventi.forEach(evento => {
             const html = `
                 <div class="eventoContainer">
-                    <h1 class="categoria">Categoria: ${evento.categoria}</h1>
                     <div class="sfondoContainer">
                         <div class="topEventoContainer">
                             <div class="dataInizio">${evento.data_inizio}</div>
                             <img src="/pictures/cestino.png" alt="cestino">
                         </div>
-                        <img src="${evento.immagine}" alt="Immagine dell'evento">
+                        <img class="immagineSfondo" src="${evento.immagine}" alt="Immagine dell'evento">
                         <div class="bottomEventoContainer">
                             <div class="bottomEventoSu">
                                 <div>Titolo: ${evento.titolo}</div>

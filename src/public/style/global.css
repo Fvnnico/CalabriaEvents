@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-family: "Titillium Web", Courier, monospace;
+    font-family: "Montserrat", Courier, monospace;
 }
 :root {
     --header-color: #0e3d59;
