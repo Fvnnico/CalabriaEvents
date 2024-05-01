@@ -12,7 +12,6 @@ function elimina(id_evento) {
             }
         } else {
             console.error('Errore durante l\'eliminazione dell\'evento:', response.statusText);
-            console.log(typeof id_evento);
         }
     })
     .catch(error => {
