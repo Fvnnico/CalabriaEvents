@@ -71,13 +71,3 @@ function confermaEliminazione(id_evento) {
     });
 }
 
-
-
-elimina(id_evento)
-    .then(() => {
-        confermaEliminazione(id_evento);
-    })
-    .catch(error => {
-        // Gestione degli errori
-        console.error(error);
-    });

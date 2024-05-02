@@ -21,7 +21,7 @@ document.querySelector("#loginForm").addEventListener("submit", (e) => {
             if (data.isAdmin) {
                 window.location.href = "/admin";
             } else {
-                window.location.href = "/";
+                window.location.href = "/homepage-log.html";
             }
         })
         .catch((err) => console.log(err));

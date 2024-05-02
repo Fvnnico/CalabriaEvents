@@ -144,6 +144,7 @@ const crudEventi = function (nomeTabella) {
             }
         )
     });
+
     return router;
 };
 

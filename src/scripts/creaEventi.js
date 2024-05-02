@@ -59,6 +59,7 @@ function modal() {
     span.onclick = function () {
         modal.style.display = "none";
     };
+    modal();
 }
 
-modal();
+

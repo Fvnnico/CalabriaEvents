@@ -14,6 +14,28 @@ authRouter.get("/", (req, res) => {
     });
 });
 
+authRouter.get("/utente", (req, res) => {
+    const filePath = path.join(__dirname, "pages", "homepage-log.html");
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log("error");
+            res.status(500).send("Errore interno del server");
+        }
+    });
+});
+
+authRouter.get("/preferiti", (req, res) => {
+    const filePath = path.join(__dirname, "pages", "preferiti.html");
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log("error");
+            res.status(500).send("Errore interno del server");
+        }
+    });
+});
+
+
+
 // Pagina di registrazione routing
 authRouter.get("/registrazione", (req, res) => {
         const filePath = path.join(__dirname, "pages", "registrazione.html");

@@ -3,75 +3,61 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=430, heigth=1351, initial-scale=1.0" />
-        <title>Login</title>
-        <link rel="stylesheet" href="style/login.css" />
-        <link rel="stylesheet" href="style/dropdown.css" />
-        <link rel="stylesheet" href="style/footer.css" />
-        <!-- stile css -->
-        <link rel="stylesheet" href="style/global.css" />
+        <title>Homepage loggato</title>
+        <link rel="stylesheet" href="style/homepage.css" />
         <!--  variabili globali -->
+        <link rel="stylesheet" href="style/global.css" />
+        <link rel="stylesheet" href="style/dropdown.css" />
+        <link rel="stylesheet" href="style/eventiCard.css" />
+        <link rel="stylesheet" href="style/footer.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">   
+        <!-- font rock salt -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
     </head>
-
     <body>
         <!-- Zona logo, account , menu -->
         <header>
             <nav>
-                <a href="/">
+                <a href="/utente">
                     <img class="logo" src="/pictures/LOGO.png" alt="logo-sito" />
                 </a>
+                <a href="/preferiti">
+                    <img class="preferiti" src="/pictures/preferiti.png" alt="preferiti" />
+                </a>
                 <img class="account" src="/pictures/omino.png" alt="account" />
+
                 <div class="dropdownContenuto">
                     <img class="hamburger-menu" id="hamburger" onclick="apriDropdown();" src="/pictures/hamburger.png" alt="hamburger-menu"/>
                     <div class="dropdownApparso" id="dropdownApparso">
-                        <a href="/">Homepage</a>
-                        <a href="/registrazione">Registrati</a>
+                        <a href="/utente">Homepage</a>
+                        <a href="/preferiti">Preferiti</a>
                     </div>
                 </div>
+
             </nav>
         </header>
-        <!-- Zona contenuto -->
+
         <main>
-            <div class="consiglio-registrazione-container">
-                <h1>Accesso</h1>
-                <h3>Non sei ancora registrato?</h3>
-                <h2><a href="/registrazione">Registrati</a></h2>
+            <div class="contenitore-hero">
+                <img class="foto-hero" src="/pictures/hero-img.png">
+                <h1>Scopri la Calabria attraverso un susseguirsi<br> di eventi unici, che celebrano la sua storia,<br> tradizioni e gastronomia.</h1>
+                <div class="contenitore-search">
+                    <form action="/search" method="get">
+                        <img class="lente-img" src="/pictures/search.png" alt="ricerca">
+                        <input type="text" name="query" placeholder="Cerca evento...">
+                        <img class="filtro-img" src="/pictures/filtro.png" alt="filtro">
+                    </form>
+                </div>
             </div>
 
-            <div class="accesso-container">
-                <form id="loginForm">
-                    <label class="email" for="email">E-mail:</label>
-                    <input
-                        class="email"
-                        type="text"
-                        id="email"
-                        name="email"
-                        placeholder="Inserisci la tua email"
-                        required
-                    />
-                    <label class="password" for="password">Password:</label>
-                    <input
-                        class="password"
-                        type="password"
-                        id="password"
-                        name="password"
-                        placeholder="Inserisci la tua password"
-                        required
-                    />
+            <div id="eventiContainer"></div>
 
-                    <a href="/">
-                        <button class="accedi" type="submit">Accedi</button>
-                    </a>
-
-
-                </form>
-                
-            </div>
-
-            <p class="problemi-accesso">Problemi con l'accesso?</p>
         </main>
+
 
         <footer>
             <div class="contenitore-footer">
@@ -101,7 +87,7 @@
                 </div>
             </div>
         </footer>
-        <script src="/src/scripts/login.js"></script>
         <script src="/src/scripts/dropdownHamburger.js"></script>
+        <script src="/src/scripts/eventiHomepage.js"></script>
     </body>
 </html>
