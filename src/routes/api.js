@@ -132,7 +132,7 @@ const crudEventi = function (nomeTabella) {
         const id = req.params.id;
         console.log(req.params.id);
         db.query(
-            `DELETE FROM ${nomeTabella} WHERE id_preferiti = ${id}`, (err, results) => {
+            `DELETE FROM ${nomeTabella} WHERE id_evento = ${id}`, (err, results) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send("Errore interno del server");
@@ -237,7 +237,7 @@ const crudPreferiti = function (nomeTabella) {
     
         // Esegui una query per eliminare l'evento preferito dalla tabella dei preferiti
         db.query(
-            `DELETE FROM ${nomeTabella} WHERE id_preferiti = ?`,
+            `DELETE FROM ${nomeTabella} WHERE id_evento = ?`,
             [id],
             (err, results) => {
                 if (err) {
