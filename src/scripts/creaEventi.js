@@ -18,7 +18,7 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
 
     try {
         await uploadFormData(formData);
-        console.log(formData);
+        modal();
     } catch (error) {
         console.error(error);
     }

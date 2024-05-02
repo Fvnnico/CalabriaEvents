@@ -3,7 +3,7 @@
 .modal-container {
     display: none; 
     position: fixed; 
-    z-index: 1; 
+    z-index: 2; 
     left: 0;
     top: 50%;
     transform: translateY(-50%);
@@ -45,6 +45,9 @@
     margin-bottom: 45px;
 }
 
+.modal-content a{
+    text-align: center;
+}
 
 /* The Close Button */
 .close {
@@ -76,4 +79,59 @@
     height: 1px;
     margin-top: 20px;
     margin-bottom: 30px;
+}
+
+
+
+
+/* modale conferma elimina */
+.modal-container2 {
+    display: none; 
+    position: fixed; 
+    z-index: 2; 
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 430px; 
+    height: 100%;
+    max-height: 1351px;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+
+.modal-content2 {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 12px;
+}
+
+.modal-content2 p{
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 45px;
+}
+
+.modal-content2 .btn-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn-container button{
+    padding: 12px 16px 12px 16px;
+    background-color: ;
+    color: #ffffff;
+    border-radius: 6px;
+    background-color: var(--scritta-registrati);
 }

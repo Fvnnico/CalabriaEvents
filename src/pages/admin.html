@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="style/global.css" />
         <link rel="stylesheet" href="style/eventiCard.css" />
         <link rel="stylesheet" href="style/footer.css" />
-
+        <link rel="stylesheet" href="style/modale.css" />
         <!--  variabili globali -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,6 +51,33 @@
                 <a href="/eventi">
                     <button class="creazione-eventi">Crea evento + </button>
                 </a>
+            </div>
+
+            <div id="confirmModal" class="modal-container2">
+                <div class="modal-content2">
+                    <h2>Conferma eliminazione</h2>
+                    <p>Sei sicuro di voler  eliminare <br>questo evento?</p>
+                    <div class="btn-container">
+                        <button id="confirmDelete">Conferma</button>
+                        <button id="cancelDelete">Annulla</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="myModal" class="modal-container">
+                    
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h2>Eliminazione</h2>    
+                    <div class="accessi-alt-contenitore">
+                        <div class="linea"></div>
+                    </div>
+                    <p>Eliminazione avvenuta con successo</p>
+                    <a  href="/">
+                        <span class="close">Torna alla homepage</span>
+                    </a>
+                </div>
+
             </div>
             
             <div id="eventiContainer"><div/>
