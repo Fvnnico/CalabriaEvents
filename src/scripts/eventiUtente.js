@@ -5,15 +5,15 @@ xhr.onload = function () {
         const eventi = JSON.parse(xhr.response);
         const container = document.querySelector("#eventiContainer");
         
-        
         eventi.forEach(evento => {  
             const html = `
+                
                 <div class="eventoContainer" id_evento="${evento.id_evento}">
+                <div class="categoria">Categoria: ${evento.categoria}</div>
                     <div class="sfondoContainer">
                         <div class="topEventoContainer">
                             <div class="dataInizio">${evento.data_inizio}</div>
-                            <img id="cestino" class="cestino" src="/pictures/cestino.png" alt="cestino" onclick="elimina(${evento.id_evento});">
-                        </div>
+                            <img id="preferiti" class="preferiti" src="/pictures/preferiti-disattivo.png" alt="preferiti"  onclick="aggiungiPreferito(${evento.id_evento}, this);"/>                        </div>
                         <img class="immagineSfondo" src="${evento.immagine}" alt="Immagine dell'evento">
                         <div class="bottomEventoContainer">
                             <div class="bottomEventoSu">
@@ -22,7 +22,7 @@ xhr.onload = function () {
                             <div class="bottomEventoGiu">
                                 <img src="/pictures/posizione.png" class="posizioneImmagine" alt="posizione">
                                 <div class="luogo">Luogo: ${evento.luogo}</div>
-                                <button class="modifica">Modifica</button>
+                                <button class="modifica">Leggi di più</button>
                             </div>
                         </div>
                     </div>
@@ -38,3 +38,4 @@ xhr.onerror = function () {
     console.error("Errore di rete durante la richiesta.");
 };
 xhr.send();
+

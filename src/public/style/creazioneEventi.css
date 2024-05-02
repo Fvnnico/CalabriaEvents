@@ -59,7 +59,6 @@
 
     .contenitore-titoli{
         width: 100%;
-        
         display: flex;
         justify-content: start;
         flex-direction: column;

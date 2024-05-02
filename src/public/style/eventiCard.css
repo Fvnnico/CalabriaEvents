@@ -53,6 +53,14 @@
     color: white;
 }
 
+.topEventoContainer .preferiti{
+    background-color: #d1d1d1;
+}
+
+.topEventoContainer .cestino{
+    background-color: #dbdbdb;
+}
+
 
 .topEventoContainer img{
     width: 32px;

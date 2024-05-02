@@ -1,1 +1,83 @@
-<p>diocane</p>
+<!DOCTYPE html>
+<html lang="it">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=430, heigth=1351, initial-scale=1.0" />
+        <title>Creazione eventi</title>
+        <link rel="stylesheet" href="style/preferiti.css" />
+        <link rel="stylesheet" href="style/dropdown.css" />
+        <link rel="stylesheet" href="style/eventiCard.css">
+        <link rel="stylesheet" href="style/global.css" />
+        <link rel="stylesheet" href="style/modale.css" />
+        <link rel="stylesheet" href="style/footer.css" />
+        <!--  variabili globali -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">        
+    </head>
+    <body>
+        <!-- Zona logo, account , menu -->
+        <header>
+            <nav>
+                <a href="/utente">
+                    <img class="logo" src="/pictures/LOGO.png" alt="logo-sito" />
+                </a>
+                <a href="/preferiti">
+                    <img class="preferiti" src="/pictures/preferiti-disattivo.png" alt="preferiti" />
+                </a>
+                <a href="#">
+                    <img class="account" src="/pictures/omino.png" alt="account" />
+                </a>
+
+                <div class="dropdownContenuto">
+                    <img class="hamburger-menu" id="hamburger" onclick="apriDropdown();" src="/pictures/hamburger.png" alt="hamburger-menu"/>
+                    <div class="dropdownApparso" id="dropdownApparso">
+                        <a href="/utente">Homepage</a>
+                        <a href="/preferiti">Preferiti</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div class="contenitore-titoli">
+                <a href="/utente">
+                    <p>Homepage/Preferiti</p>
+                </a>
+                <h2>I tuoi preferiti</h2>
+            </div>
+
+            <div id="eventiContainer"></div>
+
+        </main>
+
+
+        <footer>
+            <div class="contenitore-footer">
+                <img class="logo" src="/pictures/LOGO.png" alt="logo" />
+                <div class="contenitore-loghi">
+                    <img src="/pictures/logos_facebook.png" alt="instagram" />
+                    <img src="/pictures/instagram.png" alt="facebook" />
+                    <img src="/pictures/x.png" alt="twitter" />
+                    <img src="/pictures/youtube.png" alt="youtube" />
+                </div>
+                <div class="contenitore-scritte">
+                    <p>calabriaeventi@info.com</p>
+                    <p>07846287462</p>
+                </div>
+                <div class="contenitore-ricerca">
+                    <p>Cerca evento</p>
+                    <p>Registrati</p>
+                    <p>Chi siamo</p>
+                </div>
+                <div class="contenitore-riserve">
+                    <p>2024 Calabria Eventi</p>
+                    <p>All rights reserved</p>
+                </div>
+            </div>
+        </footer>
+        <script src="/src/scripts/dropdownHamburger.js"></script>
+        <script src="/src/scripts/aggiungiPreferito.js"></script>
+        <script src="/src/scripts/eventiPreferiti.js"></script>
+    </body>
+</html>

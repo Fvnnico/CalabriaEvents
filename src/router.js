@@ -99,6 +99,24 @@ authRouter.get("/api/eventi", async (req, res) => {
     }
 });
 
+authRouter.get("/api/preferiti", async (req, res) => {
+    try {
+        // Effettua una query per selezionare tutti i campi dalla tabella degli eventi
+        const query = "SELECT * FROM preferiti";
+        db.query(query, (err, result) => {
+            if (err) {
+                console.error("Errore durante il recupero dei preferiti:", err);
+                res.status(500).json({ error: "Errore durante il recupero degli eventi." });
+                return;
+            }
+            // Invia i dati degli eventi come JSON
+            res.json(result);
+        });
+    } catch (error) {
+        console.error("Errore durante il recupero degli eventi:", error);
+        res.status(500).json({ error: "Errore durante il recupero degli eventi." });
+    }
+});
 
 
 // route immagini
