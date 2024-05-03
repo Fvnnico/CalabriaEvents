@@ -71,14 +71,31 @@ Vai alla  project directory
 
 Installa le dependencies
 
+Express
 ```bash
-  npm install bcrypt
-  npm install body-parser
-  npm install express
-  npm install multer
-  npm install mysql2
-  npm install nodemon
+npm install express
 ```
+MySql
+```bash
+npm install mysql2
+```
+nodemon
+```bash
+npm install nodemon
+```
+body-parser
+```bash
+npm install body-parser
+```
+bcrypt
+```bash
+npm install bcrypt
+```
+multer
+```bash
+npm install multer
+```
+
 
 Configura il database
 
