@@ -1,0 +1,38 @@
+CREATE DATABASE IF NOT EXISTS calabriaeventi;
+
+USE calabriaeventi;
+
+CREATE TABLE `eventi` (
+  `id_evento` int NOT NULL AUTO_INCREMENT,
+  `titolo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `data_inizio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `luogo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `descrizione` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `categoria` enum('Spettacolo','Mostre','Visite_guidate','convegni','feste_patronali') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `data_fine` text NOT NULL,
+  `immagine` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`id_evento`)
+)
+
+CREATE TABLE `preferiti` (
+  `id_preferiti` int NOT NULL AUTO_INCREMENT,
+  `id_utente` int DEFAULT NULL,
+  `id_evento` int NOT NULL,
+  PRIMARY KEY (`id_preferiti`),
+  KEY `id_utente` (`id_utente`),
+  KEY `id_evento` (`id_evento`),
+  CONSTRAINT `preferiti_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id_utente`),
+  CONSTRAINT `preferiti_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventi` (`id_evento`)
+) 
+
+
+CREATE TABLE `utenti` (
+  `id_utente` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `cognome` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_utente`),
+  UNIQUE KEY `email` (`email`)
+)
