@@ -97,7 +97,7 @@ Start the server
 Accedere al sito
 
 ```bash
-Accedere all'applicazione dal browser all'indirizzo http://localhost:3300.
+Access the application from your browser at http://localhost:3300.
 ```
 
 
