@@ -5,11 +5,11 @@ function elimina(id_evento) {
             let confirmModal = document.getElementById("confirmModal");
             confirmModal.style.display = "block";
 
-            // Gestore di evento per il pulsante di conferma
+            
             document.getElementById("confirmDelete").addEventListener("click", function () {
                 // Chiudi il modale di conferma
                 confirmModal.style.display = "none";
-
+                
                 // Chiamata alla funzione per eliminare l'evento
                 fetch(`/api/eventi/${id_evento}`, {
                     method: 'DELETE',

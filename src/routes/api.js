@@ -1,12 +1,11 @@
 const api = require("express").Router();
 const bcrypt = require("bcrypt");
 const db = require("../db");
-const multer = require("multer");
 
 const crudUtenti = function (nomeTabella) {
     const router = require("express").Router();
 
-    //ritorna tutto
+    // prende tutto dalla tabella
     router.get("/", (req, res) => {
         db.query("SELECT * FROM " + nomeTabella, (err, [results, _]) => {
             if (err) {
@@ -26,11 +25,12 @@ const crudUtenti = function (nomeTabella) {
         });
     });
 
-    //ritorna un elemento
+    //ritorna un elemento dalla tabella
     router.get("/:id", (req, res) => {
         const id = req.params.id;
         db.query(
-            `SELECT * FROM ${nomeTabella} WHERE id_utente = ${id}`,(err, [results, _]) => {
+            `SELECT * FROM ${nomeTabella} WHERE id_utente = ${id}`,
+            (err, [results, _]) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send("Errore interno del server");
@@ -49,6 +49,7 @@ const crudUtenti = function (nomeTabella) {
         );
     });
 
+    // inserisci nella tabella
     router.post("/", async (req, res) => {
         const body = req.body;
         /* encrypta la password nel database */
@@ -80,13 +81,10 @@ const crudUtenti = function (nomeTabella) {
     return router;
 };
 
-
-
 const crudEventi = function (nomeTabella) {
     const router = require("express").Router();
 
-    
-
+    // prende tutti eventi
     router.get("/", (req, res) => {
         db.query("SELECT * FROM " + nomeTabella, (err, [results, _]) => {
             if (err) {
@@ -106,10 +104,12 @@ const crudEventi = function (nomeTabella) {
         });
     });
 
+    // prende un singolo evento
     router.get("/:id", (req, res) => {
         const id = req.params.id;
         db.query(
-            `SELECT * FROM ${nomeTabella} WHERE id_preferiti = ${id}`,(err, results) => {
+            `SELECT * FROM ${nomeTabella} WHERE id_evento = ${id}`,
+            (err, results) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send("Errore interno del server");
@@ -128,11 +128,13 @@ const crudEventi = function (nomeTabella) {
         );
     });
 
+    // elimina un singolo evento
     router.delete("/:id", (req, res) => {
         const id = req.params.id;
         console.log(req.params.id);
         db.query(
-            `DELETE FROM ${nomeTabella} WHERE id_evento = ${id}`, (err, results) => {
+            `DELETE FROM ${nomeTabella} WHERE id_evento = ${id}`,
+            (err, results) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send("Errore interno del server");
@@ -144,7 +146,7 @@ const crudEventi = function (nomeTabella) {
                 }
                 res.status(204).send(results); // 204 No Content
             }
-        )
+        );
     });
 
     return router;
@@ -152,7 +154,6 @@ const crudEventi = function (nomeTabella) {
 
 const crudPreferiti = function (nomeTabella) {
     const router = require("express").Router();
-
 
     router.get("/", (req, res) => {
         // Query per selezionare tutti i dati degli eventi basati sugli ID evento presenti nella tabella dei preferiti
@@ -164,8 +165,7 @@ const crudPreferiti = function (nomeTabella) {
                 FROM preferiti
             )
         `;
-        
-        // Esegui la query nel database
+
         db.query(query, (err, results) => {
             if (err) {
                 console.error(err);
@@ -181,12 +181,13 @@ const crudPreferiti = function (nomeTabella) {
             res.json(results);
         });
     });
-    
 
+    // seleziona un evento dai preferiti
     router.get("/:id", (req, res) => {
         const id = req.params.id;
         db.query(
-            `SELECT * FROM ${nomeTabella} WHERE id_preferiti = ${id}`,(err, results) => {
+            `SELECT * FROM ${nomeTabella} WHERE id_preferiti = ${id}`,
+            (err, results) => {
                 if (err) {
                     console.error(err);
                     res.status(500).send("Errore interno del server");
@@ -205,16 +206,16 @@ const crudPreferiti = function (nomeTabella) {
         );
     });
 
+    // inserisci nella tabella preferiti l'evento
     router.post("/", (req, res) => {
         const id_evento = req.body.id_evento;
-    
-        // Controlla se id_evento è fornito nel corpo della richiesta
+
+        // Controlla se id_evento è fornito
         if (!id_evento) {
             res.status(400).send("L'id_evento è obbligatorio.");
             return;
         }
-    
-        // Esegui una query per inserire l'evento nella tabella dei preferiti
+
         db.query(
             `INSERT INTO ${nomeTabella} (id_evento) VALUES (?)`,
             [id_evento],
@@ -224,18 +225,17 @@ const crudPreferiti = function (nomeTabella) {
                     res.status(500).send("Errore interno del server.");
                     return;
                 }
-                res.status(201).send("Evento aggiunto ai preferiti con successo.");
+                res.status(201).send(
+                    "Evento aggiunto ai preferiti con successo."
+                );
             }
         );
     });
-    
-    
-    
-    
+
+    // Serve epr eliminare l'evento preferito dalla tabella dei preferiti
     router.delete("/:id", (req, res) => {
         const id = req.params.id;
-    
-        // Esegui una query per eliminare l'evento preferito dalla tabella dei preferiti
+
         db.query(
             `DELETE FROM ${nomeTabella} WHERE id_evento = ?`,
             [id],
@@ -247,20 +247,21 @@ const crudPreferiti = function (nomeTabella) {
                 }
                 // Controlla se sono state eliminate righe
                 if (results.affectedRows === 0) {
-                    res.status(404).send("Nessun evento preferito trovato con questo ID");
+                    res.status(404).send(
+                        "Nessun evento preferito trovato con questo ID"
+                    );
                     return;
                 }
                 res.status(204).send(); // 204 No Content
             }
         );
     });
-    
-    
 
     return router;
-}
+};
 
-api.use("/utenti", crudUtenti("utenti"));
+// Collega i route e vengono usato i nomi della tabelle del db come parametro
+api.use("/utenti", crudUtenti("utenti")); // tutte  le richieste che iniziano con /utenti verrano gestite da crudUtenti, etc.
 api.use("/eventi", crudEventi("eventi"));
 api.use("/preferiti", crudPreferiti("preferiti"));
 

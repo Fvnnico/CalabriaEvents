@@ -6,29 +6,32 @@ const path = require("path");
 const app = express();
 const port = 3300;
 
+// Per controllare le richieste che vengono fatte HTTP via JSON o query string usando il bodyparser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 const db = require("./db");
 
+// Serve per dare i file statici basandoti sulla richiesta, quindi se devi prendere una foto fai direttamente /pictures invece di tutta la path.
 app.use("/pictures", express.static("src/public/pictures"));
 app.use("/style", express.static("src/public/style"));
 app.use("/src/scripts", express.static("src/scripts"));
 
 const pages = require("./router"); // router
 const api = require("./routes/api"); // api
-const loginHandler = require("./routes/auth");
+const loginHandler = require("./routes/auth"); 
 
 // Collega il router all'app principale
 app.use("/", pages);
 
 
-
+// Uso multer per l'upload di un singolo file ("immagine") e lo salva nella directory "./uploads/"
 app.post("/upload",multer({ dest: "./uploads/" }).single("immagine"),(req, res) => {
         
-        const evento = JSON.parse(req.body.evento);
+        const evento = JSON.parse(req.body.evento); // oggetto evento
         const immagine = req.file; // Ottieni il percorso del file dell'immagine caricata
         db.query(
-            "INSERT INTO eventi SET ?",
+            "INSERT INTO eventi SET ?",  // inserisce l'evento con i dati relativi all'evento e la path dell'immagine
             [{ ...evento, immagine: immagine.path.replace("\\", '/')}], 
             (err, result) => {
                 if (err) {

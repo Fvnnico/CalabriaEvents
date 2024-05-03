@@ -1,11 +1,11 @@
 const xhr = new XMLHttpRequest();
-xhr.open("GET", "/api/eventi");
+xhr.open("GET", "/api/eventi");  // richiesta get su /api/eventi
 xhr.onload = function () {
     if (xhr.status === 200) {
-        const eventi = JSON.parse(xhr.response);
+        const eventi = JSON.parse(xhr.response);   // parsa il json in oggetto
         const container = document.querySelector("#eventiContainer");
         
-        eventi.forEach(evento => {  
+        eventi.forEach(evento => {   // per ogni evento  esegue queste azioni
             const html = `
                 
                 <div class="eventoContainer" id_evento="${evento.id_evento}">
@@ -37,5 +37,5 @@ xhr.onload = function () {
 xhr.onerror = function () {
     console.error("Errore di rete durante la richiesta.");
 };
-xhr.send();
+xhr.send(); 
 

@@ -11,13 +11,13 @@ xhrEventi.onload = function () {
             xhrPreferiti.open("GET", "/api/preferiti");
             xhrPreferiti.onload = function () {
                 if (xhrPreferiti.status === 200) {
-                    const preferiti = JSON.parse(xhrPreferiti.response);
+                    const preferiti = JSON.parse(xhrPreferiti.response);  // fa il parse degli eventi preferiti
 
-                    // Ottieni gli ID degli eventi preferiti
-                    const idPreferiti = preferiti.map(preferito => preferito.id_evento);
+                    
+                    const idPreferiti = preferiti.map(preferito => preferito.id_evento); // prendi gli id degli eventi preferiti
 
-                    // Filtra gli eventi per includere solo quelli che sono preferiti
-                    const eventiPreferiti = eventi.filter(evento => idPreferiti.includes(evento.id_evento));
+                   
+                    const eventiPreferiti = eventi.filter(evento => idPreferiti.includes(evento.id_evento));  // Filtra gli eventi per includere solo quelli che sono preferiti
 
                     // Visualizza solo gli eventi preferiti
                     eventiPreferiti.forEach(evento => {

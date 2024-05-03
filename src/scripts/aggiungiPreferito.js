@@ -1,4 +1,4 @@
-// Funzione per aggiungere o rimuovere un evento dai preferiti in base all'ID evento
+
 function aggiungiPreferito(id_evento, iconaPreferiti) {
     // Verifica se l'evento è già nei preferiti
     const isPreferito = iconaPreferiti.classList.contains("preferito");

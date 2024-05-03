@@ -8,14 +8,14 @@ const connection = require('../db');
  */
 
 const loginHandler = (req, res) => {
-    const { email, password} = req.body;
+    const { email, password} = req.body; // prende i dati dalla richiesta
 
     const credenzialiAdmin = {
         email: 'adminEpico',
         password: 'admin'
     };
 
-    // Query per ottenere l'utente dal database
+    // Query per ottenere l'utente dal database controllando l'email 
     const query = 'SELECT * FROM Utenti WHERE email = ?';
     connection.query(query, [email], (error, results, fields) => {
         if (error) {
@@ -32,10 +32,10 @@ const loginHandler = (req, res) => {
             return;
         }
 
-        // serve a contenere i dati dell'utente 
+        // serve a contenere i dati dell'utente quindi prende i dati dalla query fatta prima
         const user = results[0];
 
-        // Verifica se la password è corretta
+        // Verifica se la password è corretta confrontandola col metodo compare
         bcrypt.compare(password, user.password, (err, result) => {
             console.log('Verifico la password');
             if (err || !result) {
@@ -44,7 +44,8 @@ const loginHandler = (req, res) => {
                 return;
             }
         });
-
+         
+        // se le credenziali corrispondono a quelle dell'admin restituisce isAdmin: true 
         if (email === credenzialiAdmin.email && password === credenzialiAdmin.password) {
             res.json({ user: user, isAdmin: true });
         } else {

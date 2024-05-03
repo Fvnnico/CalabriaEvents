@@ -1,9 +1,9 @@
 document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
     e.preventDefault();
-    const data = new FormData(e.target);
-    const formData = new FormData();
-    const immagine = document.querySelector("#immagine").files[0];
-    const body = {
+    const data = new FormData(e.target); // prende dati dal form
+    const formData = new FormData(); // nuovo oggetto crea
+    const immagine = document.querySelector("#immagine").files[0];  // prende il file dell'immagine
+    const body = { // oggetto con i dati del form
         id_evento: data.get("id_evento"),
         titolo: data.get("titolo"),
         categoria: data.get("categoria"),
@@ -13,7 +13,7 @@ document.querySelector("#eventiForm").addEventListener("submit", async (e) => {
         descrizione: data.get("descrizione"),
     };
 
-    formData.append("immagine", immagine);
+    formData.append("immagine", immagine);  // aggiunge al nuovo oggetto l'immagine
     formData.append("evento", JSON.stringify(body));
 
     try {

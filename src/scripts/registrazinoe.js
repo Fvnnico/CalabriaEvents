@@ -2,16 +2,16 @@ function registrazione() {
     return new Promise((resolve, reject) => {
         document
             .querySelector("#registrationForm")
-            .addEventListener("submit", (e) => {
-                e.preventDefault();
-                const data = new FormData(e.target);
-                const body = {
+            .addEventListener("submit", (e) => { // aspetta l'evento submit 
+                e.preventDefault();  // impedisce di ricaricare la pagina
+                const data = new FormData(e.target); // prende i dati dal form
+                const body = {  // oggetto con i dati 
                     nome: data.get("nome"),
                     cognome: data.get("cognome"),
                     email: data.get("email"),
                     password: data.get("password"),
                 };
-                fetch("/api/utenti", {
+                fetch("/api/utenti", {  // richiesta post  passando i dati come JSON
                     method: "POST",
                     body: JSON.stringify(body),
                     headers: {
@@ -22,7 +22,7 @@ function registrazione() {
                     .then((data) => {})
                     .catch((err) => console.log(err));
             });
-        resolve();
+        resolve();  // risolve la promise dopo aver eseguito con successo la risposta
     });
 }
 
@@ -41,7 +41,7 @@ function modal() {
         modal.style.display = "none";
     };
 }
-
+// chiama la funzione registrazione  e quando è completata esegue funzione modale
 registrazione().then(() => {
     modal();
 });

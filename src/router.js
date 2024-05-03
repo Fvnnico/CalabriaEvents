@@ -1,9 +1,9 @@
-const authRouter = require("express").Router();
-const path = require("path");
-const db = require("./db");
+const authRouter = require("express").Router();  // gestire le route
+const path = require("path"); // per i percorsi del file
+const db = require("./db"); // il db in generale
 
 
-// Pagina homepage routing
+
 authRouter.get("/", (req, res) => {
     const filePath = path.join(__dirname, "pages", "homepage.html");
     res.sendFile(filePath, (err) => {
@@ -36,7 +36,7 @@ authRouter.get("/preferiti", (req, res) => {
 
 
 
-// Pagina di registrazione routing
+
 authRouter.get("/registrazione", (req, res) => {
         const filePath = path.join(__dirname, "pages", "registrazione.html");
         res.sendFile(filePath, (err) => {
@@ -47,7 +47,7 @@ authRouter.get("/registrazione", (req, res) => {
         });
     });
 
-// Pagina di login routing
+
 authRouter.get("/login", (req, res) => {
     const filePath = path.join(__dirname, "pages", "login.html");
     res.sendFile(filePath, (err) => {
@@ -58,7 +58,7 @@ authRouter.get("/login", (req, res) => {
     });
 });
 
-// Pagina di homepage admin
+
 authRouter.get("/admin", (req, res) => {
     const filePath = path.join(__dirname, "pages", "admin.html");
     res.sendFile(filePath, (err) => {
@@ -69,7 +69,7 @@ authRouter.get("/admin", (req, res) => {
     });
 });
 
-// Pagina di creazione eventi routing
+
 authRouter.get("/eventi", (req, res) => {
     const filePath = path.join(__dirname, "pages", "creazione-eventi.html");
     res.sendFile(filePath, (err) => {
@@ -82,7 +82,6 @@ authRouter.get("/eventi", (req, res) => {
 
 authRouter.get("/api/eventi", async (req, res) => {
     try {
-        // Effettua una query per selezionare tutti i campi dalla tabella degli eventi
         const query = "SELECT * FROM eventi";
         db.query(query, (err, result) => {
             if (err) {
@@ -99,27 +98,8 @@ authRouter.get("/api/eventi", async (req, res) => {
     }
 });
 
-authRouter.get("/api/preferiti", async (req, res) => {
-    try {
-        // Effettua una query per selezionare tutti i campi dalla tabella degli eventi
-        const query = "SELECT * FROM preferiti";
-        db.query(query, (err, result) => {
-            if (err) {
-                console.error("Errore durante il recupero dei preferiti:", err);
-                res.status(500).json({ error: "Errore durante il recupero degli eventi." });
-                return;
-            }
-            // Invia i dati degli eventi come JSON
-            res.json(result);
-        });
-    } catch (error) {
-        console.error("Errore durante il recupero degli eventi:", error);
-        res.status(500).json({ error: "Errore durante il recupero degli eventi." });
-    }
-});
 
-
-// route immagini
+// route per recuperare le foto da questa path 
 authRouter.get("/uploads/:img", (req, res) => {
     const filePath = path.join(__dirname, "../uploads", req.params.img);
     res.sendFile(filePath, (err) => {
