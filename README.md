@@ -57,19 +57,19 @@ MYSQL
 
 ## Run Locally
 
-Clone the project
+Clona il progetto
 
 ```bash
   git clone https://github.com/Fvnnico/CalabriaEvents.git
 ```
 
-Go to the project directory
+Vai alla  project directory
 
 ```bash
   cd CalabriaEvents
 ```
 
-Install dependencies
+Installa le dependencies
 
 ```bash
   npm install bcrypt
@@ -80,15 +80,14 @@ Install dependencies
   npm install nodemon
 ```
 
-Configure the database
+Configura il database
 
 ```bash
-Configure the database: Create the database and import the SQL schema provided in the repository. 
+Create the database and importa lo schema  SQL che trovi nella repository
 
-It's inside the folder named: db
+Nome cartella: db
 ```
-
-Start the server
+Avvia il server
 
 ```bash
   npm run start
@@ -101,7 +100,7 @@ Access the application from your browser at http://localhost:3300.
 ```
 
 
-## Documentation
+## Documentazione
 
 [Spiegazione](https://docs.google.com/document/d/1SdvSFhJ-83xYwctAbH3lvCL7WiJ-LXD8/edit?usp=drive_link&ouid=102406965217108732984&rtpof=true&sd=true)
 
