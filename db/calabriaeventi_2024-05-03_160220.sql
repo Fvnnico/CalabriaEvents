@@ -24,24 +24,16 @@ DROP TABLE IF EXISTS `eventi`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `eventi` (
   `id_evento` int NOT NULL AUTO_INCREMENT,
-  `titolo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `data_inizio` date DEFAULT NULL,
-  `luogo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `descrizione` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
-  `categoria` enum('Sport','Cultura','Musica') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `data_fine` date DEFAULT NULL,
-  `immagine` text NOT NULL,
+  `titolo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `data_inizio` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `luogo` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `descrizione` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `categoria` enum('Spettacolo','Mostre','Visite_guidate','convegni','feste_patronali') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `data_fine` text NOT NULL,
+  `immagine` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id_evento`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `eventi`
---
-
-/*!40000 ALTER TABLE `eventi` DISABLE KEYS */;
-INSERT INTO `eventi` VALUES (132,'finoccvhio','0003-03-12','4423432432','342432423432','Sport','2333-12-31','uploads/7867a162ca6bd66818d9fc4ac76a6128');
-/*!40000 ALTER TABLE `eventi` ENABLE KEYS */;
 
 --
 -- Table structure for table `preferiti`
@@ -52,22 +44,15 @@ DROP TABLE IF EXISTS `preferiti`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `preferiti` (
   `id_preferiti` int NOT NULL AUTO_INCREMENT,
-  `id_utente` int NOT NULL,
+  `id_utente` int DEFAULT NULL,
   `id_evento` int NOT NULL,
   PRIMARY KEY (`id_preferiti`),
   KEY `id_utente` (`id_utente`),
   KEY `id_evento` (`id_evento`),
   CONSTRAINT `preferiti_ibfk_1` FOREIGN KEY (`id_utente`) REFERENCES `utenti` (`id_utente`),
   CONSTRAINT `preferiti_ibfk_2` FOREIGN KEY (`id_evento`) REFERENCES `eventi` (`id_evento`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `preferiti`
---
-
-/*!40000 ALTER TABLE `preferiti` DISABLE KEYS */;
-/*!40000 ALTER TABLE `preferiti` ENABLE KEYS */;
 
 --
 -- Table structure for table `utenti`
@@ -85,16 +70,8 @@ CREATE TABLE `utenti` (
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_utente`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `utenti`
---
-
-/*!40000 ALTER TABLE `utenti` DISABLE KEYS */;
-INSERT INTO `utenti` VALUES (1,'davide','grande','adminEpico','admin',1);
-/*!40000 ALTER TABLE `utenti` ENABLE KEYS */;
 
 --
 -- Dumping routines for database 'calabriaeventi'
@@ -109,4 +86,4 @@ INSERT INTO `utenti` VALUES (1,'davide','grande','adminEpico','admin',1);
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-29 12:56:32
+-- Dump completed on 2024-05-03 16:02:22

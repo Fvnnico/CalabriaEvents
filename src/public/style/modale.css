@@ -130,8 +130,15 @@
 
 .btn-container button{
     padding: 12px 16px 12px 16px;
-    background-color: ;
     color: #ffffff;
     border-radius: 6px;
     background-color: var(--scritta-registrati);
+}
+
+.modal-content .btn-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

@@ -27,7 +27,7 @@ xhrEventi.onload = function () {
                                 <div class="sfondoContainer">
                                     <div class="topEventoContainer">
                                         <div class="dataInizio">${evento.data_inizio}</div>
-                                        <img class="preferiti preferito" src="/pictures/preferiti-attivo.png" alt="preferiti" onclick="aggiungiPreferito(${evento.id_evento}, this);"/>
+                                        <img class="preferiti preferito" src="/pictures/preferiti-attivo.png" alt="preferiti" onclick="rimuoviPreferito(${evento.id_evento}, this);"/>
                                     </div>
                                     <img class="immagineSfondo" src="${evento.immagine}" alt="Immagine dell'evento">
                                     <div class="bottomEventoContainer">

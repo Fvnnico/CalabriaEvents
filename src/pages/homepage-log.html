@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="style/dropdown.css" />
         <link rel="stylesheet" href="style/eventiCard.css" />
         <link rel="stylesheet" href="style/footer.css" />
+        <link rel="stylesheet" href="style/modale.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap" rel="stylesheet">   
@@ -28,7 +29,7 @@
                 <a href="/preferiti">
                     <img class="preferiti" src="/pictures/preferiti-disattivo.png" alt="preferiti" />
                 </a>
-                <img class="account" src="/pictures/omino.png" alt="account" />
+                <img id="logoutIcon" class="account" src="/pictures/omino.png" onclick="modal()" alt="account" />
 
                 <div class="dropdownContenuto">
                     <img class="hamburger-menu" id="hamburger" onclick="apriDropdown();" src="/pictures/hamburger.png" alt="hamburger-menu"/>
@@ -53,6 +54,23 @@
                     </form>
                 </div>
             </div>
+
+            <div id="myModal" class="modal-container">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <h2>Logout</h2>
+                    <div class="accessi-alt-contenitore">
+                        <div class="linea"></div>
+                    </div>
+                    <p>Sei sicuro di voler effettuare il logout?</p>
+                    <div class="btn-container">
+                        <button id="logoutButton" class="logout-button">Logout</button>
+                        <button id="cancelButton" class="cancel-button">Annulla</button>
+                    </div>
+                </div>
+            </div>
+            
+
 
             <div id="eventiContainer"></div>
 
@@ -89,6 +107,7 @@
         </footer>
         <script src="/src/scripts/dropdownHamburger.js"></script>
         <script src="/src/scripts/eventiUtente.js"></script>
-        <script src="/src/scripts/aggiungiPreferito.js"></script>
+        <script src="/src/scripts/aggiungiPreferitoHomepage.js"></script>
+        <script src="/src/scripts/logout.js"></script>
     </body>
 </html>
