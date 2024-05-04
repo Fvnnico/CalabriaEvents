@@ -83,7 +83,7 @@ Installa le dependencies
 Configura il database
 
 ```bash
-Create the database and importa lo schema  SQL che trovi nella repository
+Crea il database and importa lo schema  SQL che trovi nella repository
 
 Nome cartella: db
 ```
@@ -96,7 +96,7 @@ Avvia il server
 Accedere al sito
 
 ```bash
-Access the application from your browser at http://localhost:3300.
+Accedi al sito tramite l'url http://localhost:3300.
 ```
 
 
