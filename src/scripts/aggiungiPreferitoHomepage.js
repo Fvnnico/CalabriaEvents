@@ -3,13 +3,10 @@ function aggiungiPreferito(id_evento, iconaPreferiti) {
     const isPreferito = iconaPreferiti.classList.contains("preferito");
 
     if (isPreferito) {
-        // Se l'evento è già nei preferiti, rimuovilo
         rimuoviPreferitoHome(id_evento, iconaPreferiti);
     } else {
-        // Altrimenti, aggiungilo ai preferiti
-        // Aggiorna l'icona
         iconaPreferiti.classList.add("preferito");
-        iconaPreferiti.src = "/pictures/preferiti-attivo.png"; // Cambia l'icona del cuore preferiti
+        iconaPreferiti.src = "/pictures/preferiti-attivo.png"; 
 
         // Invia una richiesta al server per aggiungere l'evento ai preferiti
         const xhr = new XMLHttpRequest();
