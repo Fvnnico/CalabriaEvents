@@ -141,6 +141,6 @@ Accedi al sito tramite l'url http://localhost:3300.
 
 Estensioni consigliate per VSCode
 
-- MySQL (Permette di gestire il DB direttamente da VSCode) 
+- MySQL (Permette di gestire il DB direttamente da VSCode basandosi su quello di MySQL Workbench) 
   -  [Link](https://marketplace.visualstudio.com/items?itemName=cweijan.vscode-mysql-client2)
 
