@@ -18,8 +18,8 @@ app.use("/style", express.static("src/public/style"));
 app.use("/src/scripts", express.static("src/scripts"));
 
 const pages = require("./router"); // router
-const api = require("./routes/api"); // api
-const loginHandler = require("./routes/auth"); 
+const api = require("./backend/api"); // api
+const loginHandler = require("./backend/auth"); 
 
 // Collega il router all'app principale
 app.use("/", pages);
