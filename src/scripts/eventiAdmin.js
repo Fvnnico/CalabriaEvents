@@ -22,7 +22,6 @@ xhr.onload = function () {
                             <div class="bottomEventoGiu">
                                 <img src="/pictures/posizione.png" class="posizioneImmagine" alt="posizione">
                                 <div class="luogo">Luogo: ${evento.luogo}</div>
-                                <button class="modifica">Modifica</button>
                             </div>
                         </div>
                     </div>

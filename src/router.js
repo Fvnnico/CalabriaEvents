@@ -80,6 +80,16 @@ authRouter.get("/eventi", (req, res) => {
     });
 });
 
+authRouter.get("/eventi:id", (req, res) => {
+    const filePath = path.join(__dirname, "pages", "eventiSpecifico.html");
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Errore interno del server");
+        }
+    });
+});
+
 authRouter.get("/api/eventi", async (req, res) => {
     try {
         const query = "SELECT * FROM eventi";

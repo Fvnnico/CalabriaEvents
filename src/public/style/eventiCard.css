@@ -114,10 +114,13 @@
     margin-left: 0.5em;
 }
 
-.bottomEventoContainer .bottomEventoGiu .modifica{
+.bottomEventoContainer .bottomEventoGiu a .modifica{
     width: 9em;
     padding: 10px;
     background-color: #008DDA;
     border-radius: 6px;
+}
+
+.bottomEventoContainer .bottomEventoGiu a {
     margin-left: auto;
 }

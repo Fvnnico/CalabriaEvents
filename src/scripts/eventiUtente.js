@@ -22,7 +22,9 @@ xhr.onload = function () {
                             <div class="bottomEventoGiu">
                                 <img src="/pictures/posizione.png" class="posizioneImmagine" alt="posizione">
                                 <div class="luogo">Luogo: ${evento.luogo}</div>
-                                <button class="modifica">Leggi di più</button>
+                                <a href="/eventi:${evento.id_evento}">
+                                <button id="leggiDiPiu" class="modifica" >Leggi di più</button>
+                                </a>
                             </div>
                         </div>
                     </div>
