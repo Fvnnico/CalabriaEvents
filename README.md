@@ -68,35 +68,6 @@ Vai alla  project directory
 ```bash
   cd CalabriaEvents
 ```
-
-Installa le dependencies
-
-Express
-```bash
-npm install express
-```
-MySql
-```bash
-npm install mysql2
-```
-nodemon
-```bash
-npm install nodemon
-```
-body-parser
-```bash
-npm install body-parser
-```
-bcrypt
-```bash
-npm install bcrypt
-```
-multer
-```bash
-npm install multer
-```
-
-
 Configura il database
 
 ```bash
@@ -116,12 +87,6 @@ Accedere al sito
 Accedi al sito tramite l'url http://localhost:3300.
 ```
 
-
-## Documentazione
-
-[Spiegazione](https://docs.google.com/document/d/1SdvSFhJ-83xYwctAbH3lvCL7WiJ-LXD8/edit?usp=drive_link&ouid=102406965217108732984&rtpof=true&sd=true)
-
-[Presentazione](https://docs.google.com/presentation/d/1700rjHpkzv19k7_JpG-7jRz_8K0MAE7b/edit?usp=drive_link&ouid=102406965217108732984&rtpof=true&sd=true)
 ## Authors
 
 - [Davide](https://github.com/Fvnnico)
